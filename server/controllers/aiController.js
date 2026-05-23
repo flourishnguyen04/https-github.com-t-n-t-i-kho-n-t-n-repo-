@@ -611,7 +611,7 @@ const chatWithGemini = async (payload) => {
 };
 
 const resolveTopicAndMiniTopic = async ({ topicId, miniTopicId, topicTitle, miniTopicTitle }) => {
-  const topic = topicId ? await Topic.findByPk(topicId) : await Topic.findOne({ where: { title: topicTitle } });
+  const topic = topicId ? await Topic.findById(topicId) : await Topic.findOne({ title: topicTitle });
 
   if (!topic) {
     const error = new Error("Topic was not found.");
@@ -620,8 +620,8 @@ const resolveTopicAndMiniTopic = async ({ topicId, miniTopicId, topicTitle, mini
   }
 
   const miniTopic = miniTopicId
-    ? await MiniTopic.findByPk(miniTopicId)
-    : await MiniTopic.findOne({ where: { topicId: topic.id, title: miniTopicTitle } });
+    ? await MiniTopic.findById(miniTopicId)
+    : await MiniTopic.findOne({ topicId: topic._id, title: miniTopicTitle });
 
   if (!miniTopic) {
     const error = new Error("Mission was not found.");
@@ -634,13 +634,13 @@ const resolveTopicAndMiniTopic = async ({ topicId, miniTopicId, topicTitle, mini
 
 const assertWritingUnlocked = async (userId, miniTopic) => {
   const [topics, miniTopics, progresses] = await Promise.all([
-    Topic.findAll({ order: [['order', 'ASC']] }),
-    MiniTopic.findAll({ order: [['order', 'ASC']] }),
-    Progress.findAll({ where: { userId } })
+    Topic.find().sort({ order: 1 }),
+    MiniTopic.find().sort({ order: 1 }),
+    Progress.find({ userId })
   ]);
 
   const topicStatuses = buildTopicStatuses(topics, miniTopics, progresses);
-  const topicIndex = topics.findIndex((topic) => toId(topic.id) === toId(miniTopic.topicId));
+  const topicIndex = topics.findIndex((topic) => toId(topic._id) === toId(miniTopic.topicId));
   const topicStatus = topicStatuses[topicIndex] || { isUnlocked: false };
   const topic = topics[topicIndex];
 
@@ -652,11 +652,11 @@ const assertWritingUnlocked = async (userId, miniTopic) => {
 
   const topicMiniTopics = miniTopics.filter((item) => toId(item.topicId) === toId(miniTopic.topicId));
   const miniStatuses = buildMiniTopicStatuses(topic, topicMiniTopics, progresses, topicStatus.isUnlocked);
-  const miniIndex = topicMiniTopics.findIndex((item) => toId(item.id) === toId(miniTopic.id));
+  const miniIndex = topicMiniTopics.findIndex((item) => toId(item._id) === toId(miniTopic._id));
   const miniStatus = miniStatuses[miniIndex] || { isUnlocked: false };
-  const progress = progresses.find((item) => toId(item.miniTopicId) === toId(miniTopic.id)) || null;
+  const progress = progresses.find((item) => toId(item.miniTopicId) === toId(miniTopic._id)) || null;
 
-  const allActivities = await Activity.findAll({ where: { miniTopicId: miniTopic.id } });
+  const allActivities = await Activity.find({ miniTopicId: miniTopic._id });
   const activeTaskSlugs = [...new Set(allActivities.map(a => a.taskSlug))];
   activeTaskSlugs.sort((a, b) => {
     const idxA = TASK_FLOW.indexOf(a);
@@ -695,7 +695,7 @@ const evaluateWriting = async (req, res, next) => {
       miniTopicTitle
     });
 
-    await assertWritingUnlocked(req.user.id, miniTopic);
+    await assertWritingUnlocked(req.user._id, miniTopic);
 
     const evaluation = await evaluateWithGemini({
       topicTitle: topic.title,
@@ -706,9 +706,9 @@ const evaluateWriting = async (req, res, next) => {
     });
 
     const submission = await Submission.create({
-      userId: req.user.id,
-      topicId: topic.id,
-      miniTopicId: miniTopic.id,
+      userId: req.user._id,
+      topicId: topic._id,
+      miniTopicId: miniTopic._id,
       paragraph,
       wordCount,
       score: evaluation.score,
@@ -724,7 +724,7 @@ const evaluateWriting = async (req, res, next) => {
 
     const progressResult =
       typeof evaluation.score === "number" && evaluation.score >= 60
-        ? await markMiniTopicPassed(req.user.id, miniTopic.id, evaluation.score)
+        ? await markMiniTopicPassed(req.user._id, miniTopic._id, evaluation.score)
         : null;
 
     res.status(201).json({
@@ -734,7 +734,7 @@ const evaluateWriting = async (req, res, next) => {
       feedback: evaluation.feedback,
       feedbackCards: evaluation.feedbackCards,
       grammarMistakes: evaluation.grammarMistakes,
-      submissionId: submission.id,
+      submissionId: submission._id,
       wordCount,
       passed: typeof evaluation.score === "number" && evaluation.score >= 60,
       isTopicCompleted: progressResult?.isTopicCompleted || false
@@ -866,10 +866,8 @@ const writingChat = async (req, res, next) => {
 
     if (submissionId) {
       submission = await Submission.findOne({
-        where: {
-          id: submissionId,
-          userId: req.user.id
-        }
+        _id: submissionId,
+        userId: req.user._id
       });
 
       if (!submission) {
