@@ -33,7 +33,7 @@ const activitySchema = new mongoose.Schema(
     },
     question: {
       type: String,
-      required: true
+      default: ""
     },
     options: [
       {
