@@ -4,6 +4,7 @@ export const TASK_FLOW = [
   "present-simple",
   "modal-verbs",
   "conditional-sentences",
+  "conditional-sentences-type-2",
   "relative-clauses",
   "complex-sentences",
   FINAL_WRITING_SLUG

@@ -1623,17 +1623,25 @@ html[data-theme="dark"] body::after {
 }
 
 .feedback-explanation-card {
-  color: #24143d !important;
-  background:
-    radial-gradient(circle at 18% 10%, rgba(255, 255, 255, 0.42), transparent 30%),
-    linear-gradient(135deg, #fde68a, #fbbf24) !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5) !important;
+  border: 1px solid #8b5cf6 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3) !important;
+  padding: 1.25rem !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.feedback-explanation-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.45) !important;
 }
 
 .feedback-explanation-card *,
 .feedback-explanation-card .text-text,
 .feedback-explanation-card .text-muted,
 .feedback-explanation-card .text-warning {
-  color: #24143d !important;
+  color: #ffffff !important;
 }
 
 .task-practice-card,
@@ -1699,11 +1707,28 @@ html[data-theme="dark"] body::after {
   border-color: #e5e7eb !important;
 }
 
-.grammar-table-card-selected {
+.grammar-table-card-selected-a {
   border-color: #8b5cf6 !important;
+  background: linear-gradient(180deg, #ffffff, #f5f3ff) !important;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.85) inset,
-    0 16px 38px rgba(139, 92, 246, 0.18) !important;
+    0 0 0 4px rgba(139, 92, 246, 0.35),
+    0 16px 38px rgba(139, 92, 246, 0.3) !important;
+  transform: translateY(-6px) scale(1.02) !important;
+}
+
+.grammar-table-card-selected-b {
+  border-color: #f59e0b !important;
+  background: linear-gradient(180deg, #ffffff, #fffbeb) !important;
+  box-shadow:
+    0 0 0 4px rgba(245, 158, 11, 0.35),
+    0 16px 38px rgba(245, 158, 11, 0.3) !important;
+  transform: translateY(-6px) scale(1.02) !important;
+}
+
+.grammar-table-card-unselected {
+  border-color: #e5e7eb !important;
+  opacity: 0.5;
+  transform: scale(0.98);
 }
 
 .grammar-table-card-correct {
@@ -2042,3 +2067,24 @@ html[data-theme="dark"] span.inline-flex.rounded-full[class*="bg-secondary"] {
 html[data-font-size="large"] .featured-topic-title {
   font-size: clamp(17px, 1.08vw, 21px);
 }
+
+.writing-question-box-gold {
+  border: 1px solid rgba(245, 158, 11, 0.52) !important;
+  background:
+    radial-gradient(circle at 20% 12%, rgba(255, 255, 255, 0.62), transparent 30%),
+    linear-gradient(135deg, #fff7ed 0%, #fde68a 100%) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.86) inset,
+    0 12px 26px rgba(217, 119, 6, 0.14) !important;
+  color: #a34700 !important;
+}
+
+.writing-question-box-gold .writing-question-title {
+  color: #a34700 !important;
+  opacity: 0.85;
+}
+
+.writing-question-box-gold .writing-question-text {
+  color: #a34700 !important;
+}
+

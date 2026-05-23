@@ -5,14 +5,15 @@ const GRAMMAR_TASKS = [
   { slug: "present-simple", taskNumber: 1, grammarTitle: "Present Simple" },
   { slug: "modal-verbs", taskNumber: 2, grammarTitle: "Modal Verbs" },
   { slug: "conditional-sentences", taskNumber: 3, grammarTitle: "Conditional Sentences" },
-  { slug: "relative-clauses", taskNumber: 4, grammarTitle: "Relative Clauses" },
-  { slug: "complex-sentences", taskNumber: 5, grammarTitle: "Complex Sentences" }
+  { slug: "conditional-sentences-type-2", taskNumber: 4, grammarTitle: "Conditional Sentences Type 2" },
+  { slug: "relative-clauses", taskNumber: 5, grammarTitle: "Relative Clauses" },
+  { slug: "complex-sentences", taskNumber: 6, grammarTitle: "Complex Sentences" }
 ];
 
 const TASK_FLOW = [...GRAMMAR_TASKS.map((task) => task.slug), FINAL_WRITING_SLUG];
 const ACTIVITY_FLOW = TASK_FLOW;
 
-const toId = (value) => String(value?._id || value);
+const toId = (value) => String(value?.id || value?._id || value);
 
 const progressMapByMiniTopic = (progresses = []) =>
   progresses.reduce((map, progress) => {
@@ -33,13 +34,14 @@ const isTaskCompleted = (taskSlug, progress) => getCompletedActivities(progress)
 const isProgressMissionCompleted = (progress) =>
   Boolean(progress?.isMiniTopicCompleted && isTaskCompleted(FINAL_WRITING_SLUG, progress));
 
-const isActivityTypeUnlocked = (taskSlug, progress) => {
-  const index = TASK_FLOW.indexOf(taskSlug);
+const isActivityTypeUnlocked = (taskSlug, progress, activeTaskSlugs) => {
+  const flow = activeTaskSlugs || TASK_FLOW;
+  const index = flow.indexOf(taskSlug);
   if (index === -1) return false;
   if (index === 0) return true;
 
   const completed = getCompletedActivities(progress);
-  return TASK_FLOW.slice(0, index).every((requiredTaskSlug) => completed.has(requiredTaskSlug));
+  return flow.slice(0, index).every((requiredTaskSlug) => completed.has(requiredTaskSlug));
 };
 
 const getLevelFromScore = (score) => {
@@ -49,10 +51,10 @@ const getLevelFromScore = (score) => {
 };
 
 const isTopicCompleted = (topic, miniTopics, progressMap) => {
-  const miniTopicsForTopic = miniTopics.filter((miniTopic) => toId(miniTopic.topicId) === toId(topic._id));
+  const miniTopicsForTopic = miniTopics.filter((miniTopic) => toId(miniTopic.topicId) === toId(topic));
   return (
     miniTopicsForTopic.length > 0 &&
-    miniTopicsForTopic.every((miniTopic) => isProgressMissionCompleted(progressMap.get(toId(miniTopic._id))))
+    miniTopicsForTopic.every((miniTopic) => isProgressMissionCompleted(progressMap.get(toId(miniTopic))))
   );
 };
 
@@ -62,21 +64,21 @@ const buildTopicStatuses = (topics = [], miniTopics = [], progresses = []) => {
   const completedTopicMap = new Map();
 
   sortedTopics.forEach((topic) => {
-    completedTopicMap.set(toId(topic._id), isTopicCompleted(topic, miniTopics, progressMap));
+    completedTopicMap.set(toId(topic), isTopicCompleted(topic, miniTopics, progressMap));
   });
 
   return sortedTopics.map((topic, index) => {
-    const miniTopicsForTopic = miniTopics.filter((miniTopic) => toId(miniTopic.topicId) === toId(topic._id));
+    const miniTopicsForTopic = miniTopics.filter((miniTopic) => toId(miniTopic.topicId) === toId(topic));
     const completedMiniTopics = miniTopicsForTopic.filter((miniTopic) =>
-      isProgressMissionCompleted(progressMap.get(toId(miniTopic._id)))
+      isProgressMissionCompleted(progressMap.get(toId(miniTopic)))
     ).length;
     const previousTopic = sortedTopics[index - 1];
     const isUnlocked =
-      Boolean(topic.isDefaultUnlocked) || (previousTopic && completedTopicMap.get(toId(previousTopic._id)));
+      Boolean(topic.isDefaultUnlocked) || (previousTopic && completedTopicMap.get(toId(previousTopic)));
 
     return {
       isUnlocked,
-      isCompleted: completedTopicMap.get(toId(topic._id)) || false,
+      isCompleted: completedTopicMap.get(toId(topic)) || false,
       completedMiniTopics,
       totalMiniTopics: miniTopicsForTopic.length,
       progressPercent:
@@ -90,9 +92,9 @@ const buildMiniTopicStatuses = (topic, miniTopics = [], progresses = [], isTopic
   const progressMap = progressMapByMiniTopic(progresses);
 
   return sortedMiniTopics.map((miniTopic, index) => {
-    const progress = progressMap.get(toId(miniTopic._id));
+    const progress = progressMap.get(toId(miniTopic));
     const previousMiniTopic = sortedMiniTopics[index - 1];
-    const previousProgress = previousMiniTopic ? progressMap.get(toId(previousMiniTopic._id)) : null;
+    const previousProgress = previousMiniTopic ? progressMap.get(toId(previousMiniTopic)) : null;
     const isUnlocked = Boolean(
       isTopicUnlocked && (index === 0 || isProgressMissionCompleted(previousProgress))
     );
@@ -106,7 +108,7 @@ const buildMiniTopicStatuses = (topic, miniTopics = [], progresses = [], isTopic
           ? Object.fromEntries(progress.activityScores)
           : progress?.activityScores || {},
       completedAt: progress?.completedAt || null,
-      topicId: toId(topic._id)
+      topicId: toId(topic)
     };
   });
 };

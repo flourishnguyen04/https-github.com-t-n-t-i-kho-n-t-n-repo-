@@ -23,12 +23,12 @@ const activitySchema = new mongoose.Schema(
     },
     type: {
       type: String,
-      enum: ["MCQ", "GAP_FILL", "UNSCRAMBLE", "SENTENCE_WRITING", "SHORT_SENTENCE", "GRAMMAR_TABLE"],
+      enum: ["MCQ", "GAP_FILL", "UNSCRAMBLE", "SENTENCE_WRITING", "SHORT_SENTENCE", "GRAMMAR_TABLE", "MATCHING"],
       required: true
     },
     questionType: {
       type: String,
-      enum: ["MCQ", "GAP_FILL", "UNSCRAMBLE", "SENTENCE_WRITING", "SHORT_SENTENCE", "GRAMMAR_TABLE"],
+      enum: ["MCQ", "GAP_FILL", "UNSCRAMBLE", "SENTENCE_WRITING", "SHORT_SENTENCE", "GRAMMAR_TABLE", "MATCHING"],
       required: true
     },
     question: {
@@ -176,6 +176,10 @@ const activitySchema = new mongoose.Schema(
         type: String,
         default: ""
       }
+    },
+    matchingData: {
+      type: mongoose.Schema.Types.Mixed,
+      default: {}
     },
     order: {
       type: Number,

@@ -39,3 +39,9 @@ Thumbs.db
 .vercel/
 .netlify/
 .render/
+
+# Database
+database.sqlite
+local-db/
+server/local-db/
+

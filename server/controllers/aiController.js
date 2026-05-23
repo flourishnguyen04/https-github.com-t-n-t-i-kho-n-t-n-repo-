@@ -1,8 +1,5 @@
 const { GoogleGenAI } = require("@google/genai");
-const MiniTopic = require("../models/MiniTopic");
-const Progress = require("../models/Progress");
-const Submission = require("../models/Submission");
-const Topic = require("../models/Topic");
+const { Activity, MiniTopic, Progress, Submission, Topic } = require("../models");
 const {
   buildSentenceEvaluationPrompt,
   buildWritingChatPrompt,
@@ -11,6 +8,7 @@ const {
 const { isFinalWritingTestMode } = require("../utils/devFlags");
 const {
   FINAL_WRITING_SLUG,
+  TASK_FLOW,
   buildMiniTopicStatuses,
   buildTopicStatuses,
   getLevelFromScore,
@@ -613,7 +611,7 @@ const chatWithGemini = async (payload) => {
 };
 
 const resolveTopicAndMiniTopic = async ({ topicId, miniTopicId, topicTitle, miniTopicTitle }) => {
-  const topic = topicId ? await Topic.findById(topicId) : await Topic.findOne({ title: topicTitle });
+  const topic = topicId ? await Topic.findByPk(topicId) : await Topic.findOne({ where: { title: topicTitle } });
 
   if (!topic) {
     const error = new Error("Topic was not found.");
@@ -622,8 +620,8 @@ const resolveTopicAndMiniTopic = async ({ topicId, miniTopicId, topicTitle, mini
   }
 
   const miniTopic = miniTopicId
-    ? await MiniTopic.findById(miniTopicId)
-    : await MiniTopic.findOne({ topicId: topic._id, title: miniTopicTitle });
+    ? await MiniTopic.findByPk(miniTopicId)
+    : await MiniTopic.findOne({ where: { topicId: topic.id, title: miniTopicTitle } });
 
   if (!miniTopic) {
     const error = new Error("Mission was not found.");
@@ -636,13 +634,13 @@ const resolveTopicAndMiniTopic = async ({ topicId, miniTopicId, topicTitle, mini
 
 const assertWritingUnlocked = async (userId, miniTopic) => {
   const [topics, miniTopics, progresses] = await Promise.all([
-    Topic.find().sort({ order: 1 }),
-    MiniTopic.find().sort({ order: 1 }),
-    Progress.find({ userId })
+    Topic.findAll({ order: [['order', 'ASC']] }),
+    MiniTopic.findAll({ order: [['order', 'ASC']] }),
+    Progress.findAll({ where: { userId } })
   ]);
 
   const topicStatuses = buildTopicStatuses(topics, miniTopics, progresses);
-  const topicIndex = topics.findIndex((topic) => toId(topic._id) === toId(miniTopic.topicId));
+  const topicIndex = topics.findIndex((topic) => toId(topic.id) === toId(miniTopic.topicId));
   const topicStatus = topicStatuses[topicIndex] || { isUnlocked: false };
   const topic = topics[topicIndex];
 
@@ -654,11 +652,20 @@ const assertWritingUnlocked = async (userId, miniTopic) => {
 
   const topicMiniTopics = miniTopics.filter((item) => toId(item.topicId) === toId(miniTopic.topicId));
   const miniStatuses = buildMiniTopicStatuses(topic, topicMiniTopics, progresses, topicStatus.isUnlocked);
-  const miniIndex = topicMiniTopics.findIndex((item) => toId(item._id) === toId(miniTopic._id));
+  const miniIndex = topicMiniTopics.findIndex((item) => toId(item.id) === toId(miniTopic.id));
   const miniStatus = miniStatuses[miniIndex] || { isUnlocked: false };
-  const progress = progresses.find((item) => toId(item.miniTopicId) === toId(miniTopic._id)) || null;
+  const progress = progresses.find((item) => toId(item.miniTopicId) === toId(miniTopic.id)) || null;
 
-  if (!miniStatus.isUnlocked || (!isFinalWritingTestMode() && !isActivityTypeUnlocked(FINAL_WRITING_SLUG, progress))) {
+  const allActivities = await Activity.findAll({ where: { miniTopicId: miniTopic.id } });
+  const activeTaskSlugs = [...new Set(allActivities.map(a => a.taskSlug))];
+  activeTaskSlugs.sort((a, b) => {
+    const idxA = TASK_FLOW.indexOf(a);
+    const idxB = TASK_FLOW.indexOf(b);
+    return idxA - idxB;
+  });
+  activeTaskSlugs.push(FINAL_WRITING_SLUG);
+
+  if (!miniStatus.isUnlocked || (!isFinalWritingTestMode() && !isActivityTypeUnlocked(FINAL_WRITING_SLUG, progress, activeTaskSlugs))) {
     const error = new Error("Complete the required activities before submitting final writing.");
     error.statusCode = 423;
     throw error;
@@ -688,7 +695,7 @@ const evaluateWriting = async (req, res, next) => {
       miniTopicTitle
     });
 
-    await assertWritingUnlocked(req.user._id, miniTopic);
+    await assertWritingUnlocked(req.user.id, miniTopic);
 
     const evaluation = await evaluateWithGemini({
       topicTitle: topic.title,
@@ -699,9 +706,9 @@ const evaluateWriting = async (req, res, next) => {
     });
 
     const submission = await Submission.create({
-      userId: req.user._id,
-      topicId: topic._id,
-      miniTopicId: miniTopic._id,
+      userId: req.user.id,
+      topicId: topic.id,
+      miniTopicId: miniTopic.id,
       paragraph,
       wordCount,
       score: evaluation.score,
@@ -717,7 +724,7 @@ const evaluateWriting = async (req, res, next) => {
 
     const progressResult =
       typeof evaluation.score === "number" && evaluation.score >= 60
-        ? await markMiniTopicPassed(req.user._id, miniTopic._id, evaluation.score)
+        ? await markMiniTopicPassed(req.user.id, miniTopic.id, evaluation.score)
         : null;
 
     res.status(201).json({
@@ -727,7 +734,7 @@ const evaluateWriting = async (req, res, next) => {
       feedback: evaluation.feedback,
       feedbackCards: evaluation.feedbackCards,
       grammarMistakes: evaluation.grammarMistakes,
-      submissionId: submission._id,
+      submissionId: submission.id,
       wordCount,
       passed: typeof evaluation.score === "number" && evaluation.score >= 60,
       isTopicCompleted: progressResult?.isTopicCompleted || false
@@ -735,6 +742,58 @@ const evaluateWriting = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+const evaluateSentenceLocalFallback = (payload) => {
+  const { learnerSentence = "", prompt = "", targetStructure = "", givenWords = [] } = payload;
+  
+  const normalize = (val) => String(val || "").trim().toLowerCase().replace(/[^\w\s]/g, "").replace(/\s+/g, " ");
+  const getWords = (str) => normalize(str).split(" ").filter(Boolean);
+
+  const normAnswer = normalize(learnerSentence);
+  const wordCount = getWords(learnerSentence).length;
+
+  const hasEnoughWords = wordCount >= 5;
+
+  let keywordMatched = true;
+  const issues = [];
+
+  if (givenWords.length > 0) {
+    const missingKeywords = givenWords.filter(kw => !normalize(learnerSentence).includes(normalize(kw)));
+    if (missingKeywords.length > 0) {
+      keywordMatched = false;
+      missingKeywords.forEach(kw => {
+        issues.push({
+          type: "missing_keyword",
+          message: `The suggested keyword "${kw}" is missing from your sentence.`,
+          keyword: kw
+        });
+      });
+    }
+  }
+
+  if (!hasEnoughWords) {
+    issues.push({
+      type: "length",
+      message: "A complete sentence must contain at least 5 words."
+    });
+  }
+
+  const isCorrect = hasEnoughWords && keywordMatched;
+
+  return {
+    isCorrect,
+    feedback: isCorrect
+      ? "Great job! Your sentence uses the correct grammar structure and matches the prompt context."
+      : "Your sentence needs a few corrections. Review the feedback and try again.",
+    explanation: isCorrect
+      ? "The sentence is grammatically correct and includes all required elements."
+      : issues.map(i => i.message).join(" "),
+    usedGrammarStructure: targetStructure || "target structure",
+    highlightCorrectPart: learnerSentence,
+    minorTips: [],
+    issues
+  };
 };
 
 const evaluateSentence = async (req, res, next) => {
@@ -755,7 +814,7 @@ const evaluateSentence = async (req, res, next) => {
       throw new Error("Sentence and prompt are required.");
     }
 
-    const evaluation = await evaluateSentenceWithGemini({
+    const payload = {
       missionTitle,
       taskTitle,
       grammarPoint,
@@ -764,7 +823,15 @@ const evaluateSentence = async (req, res, next) => {
       learnerSentence,
       targetStructure,
       givenWords: Array.isArray(givenWords) ? givenWords : []
-    });
+    };
+
+    let evaluation;
+    try {
+      evaluation = await evaluateSentenceWithGemini(payload);
+    } catch (err) {
+      console.warn("[AI_SENTENCE] Gemini evaluation failed, using local fallback:", err.message);
+      evaluation = evaluateSentenceLocalFallback(payload);
+    }
 
     res.json(evaluation);
   } catch (error) {
@@ -799,8 +866,10 @@ const writingChat = async (req, res, next) => {
 
     if (submissionId) {
       submission = await Submission.findOne({
-        _id: submissionId,
-        userId: req.user._id
+        where: {
+          id: submissionId,
+          userId: req.user.id
+        }
       });
 
       if (!submission) {

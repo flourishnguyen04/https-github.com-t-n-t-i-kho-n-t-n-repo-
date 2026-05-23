@@ -1,0 +1,1654 @@
+[
+  {
+    "taskSlug": "present-simple",
+    "activities": [
+      {
+        "type": "MCQ",
+        "question": "Many teenagers ___ fast food because it is cheap and convenient.",
+        "correctAnswer": "like",
+        "explanation": "When talking about a general truth or habit involving more than one person or thing, use the plain action word without adding an \"s\".",
+        "wrongAnswerHint": "The subject \"teenagers\" means more than one person. Look for the action word that has no \"s\" at the end.",
+        "options": [
+          "like",
+          "likes",
+          "liking",
+          "liked"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "like",
+            "explanation": "Correct. We are talking about \"Many teenagers\" (more than one person). When more than one person does something regularly, we use the normal action word \"like\" without adding an \"s\" at the end."
+          },
+          {
+            "option": "likes",
+            "explanation": "Incorrect. We only add an \"s\" to the action word when just one person or thing does it (for example: \"He likes\" or \"A teenager likes\")."
+          },
+          {
+            "option": "liking",
+            "explanation": "Incorrect. Words ending in \"-ing\" cannot be the main action word by themselves. They need a helping word like \"are\" before them (like \"are liking\")."
+          },
+          {
+            "option": "liked",
+            "explanation": "Incorrect. This word means the action happened in the past and is over. But the sentence talks about a fact that is still true today."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Fast food restaurants usually ___ food very quickly.",
+        "correctAnswer": "serve",
+        "explanation": "For regular habits of more than one person or thing, use the plain action word. Words like \"usually\" or \"often\" sit right before this action word.",
+        "wrongAnswerHint": "The subject is \"restaurants\" (more than one). Choose the basic action word with no extra endings.",
+        "options": [
+          "serves",
+          "serving",
+          "serve",
+          "served"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "serves",
+            "explanation": "Incorrect. \"Restaurants\" means more than one place, so the action word should not have an \"s\" at the end."
+          },
+          {
+            "option": "serving",
+            "explanation": "Incorrect. You cannot use an \"-ing\" word alone as the main action of the sentence."
+          },
+          {
+            "option": "serve",
+            "explanation": "Correct. The plain word \"serve\" matches the plural subject \"Fast food restaurants\" for a regular habit."
+          },
+          {
+            "option": "served",
+            "explanation": "Incorrect. The word \"usually\" shows this happens all the time, so we cannot use a past-time word like \"served.\""
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Too much fast food ___ health problems for children.",
+        "correctAnswer": "causes",
+        "explanation": "When talking about a single concept or something you cannot count as individual items (like food, water, or air), add an \"s\" or \"es\" to the action word.",
+        "wrongAnswerHint": "Treat \"fast food\" as one single thing. Look for the action word that ends with an \"s\".",
+        "options": [
+          "cause",
+          "causes",
+          "causing",
+          "caused"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "cause",
+            "explanation": "Incorrect. \"Fast food\" is treated as one single mass or concept, so the action word needs an \"s\" at the end."
+          },
+          {
+            "option": "causes",
+            "explanation": "Correct. We add an \"s\" to the word \"cause\" because we are talking about one single thing (\"Fast food\") creating a result."
+          },
+          {
+            "option": "causing",
+            "explanation": "Incorrect. An \"-ing\" word cannot link the subject to the object without a helper word like \"is.\""
+          },
+          {
+            "option": "caused",
+            "explanation": "Incorrect. This is a permanent health fact, so do not use a past-tense word."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Many students ___ burgers after school.",
+        "correctAnswer": "buy",
+        "explanation": "For regular routines or daily habits of more than one person, use the basic, unchanged action word.",
+        "wrongAnswerHint": "The subject is \"students\" (plural). Pick the option without the \"-s\" ending.",
+        "options": [
+          "buy",
+          "buys",
+          "buying",
+          "bought"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "buy",
+            "explanation": "Correct. \"Many students\" means more than one person, so we use the basic action word \"buy.\""
+          },
+          {
+            "option": "buys",
+            "explanation": "Incorrect. Do not add an \"s\" to the action word when more than one person is doing the action."
+          },
+          {
+            "option": "buying",
+            "explanation": "Incorrect. You cannot use an \"-ing\" word by itself as the main action."
+          },
+          {
+            "option": "bought",
+            "explanation": "Incorrect. \"After school\" tells us this is a regular habit, not a single event that happened in the past."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Fast food ___ more popular in big cities.",
+        "correctAnswer": "becomes",
+        "explanation": "To describe a current trend or fact about a single entity, add \"-s\" to the action word.",
+        "wrongAnswerHint": "Pair the single concept \"Fast food\" with the present verb form that ends in \"-s\".",
+        "options": [
+          "become",
+          "becomes",
+          "becoming",
+          "became"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "become",
+            "explanation": "Incorrect. \"Fast food\" is one single concept, so the action word cannot be left in its plain form. It needs an \"s.\""
+          },
+          {
+            "option": "becomes",
+            "explanation": "Correct. The ending \"-s\" is added because we are describing a current fact about one single item (\"Fast food\")."
+          },
+          {
+            "option": "becoming",
+            "explanation": "Incorrect. The sentence is incomplete because an \"-ing\" word cannot act as the main verb alone."
+          },
+          {
+            "option": "became",
+            "explanation": "Incorrect. This describes a current ongoing situation in the world, not an old story from the past."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Some parents ___ that fast food is unhealthy.",
+        "correctAnswer": "think",
+        "explanation": "To show beliefs or thoughts of a group of people in the present time, use the basic action word.",
+        "wrongAnswerHint": "The subject is \"parents\" (more than one). Choose the action word with no extra endings.",
+        "options": [
+          "thinks",
+          "think",
+          "thinking",
+          "thought"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "thinks",
+            "explanation": "Incorrect. You cannot use the singular ending \"-s\" when talking about more than one person (\"Some parents\")."
+          },
+          {
+            "option": "think",
+            "explanation": "Correct. The basic word \"think\" matches a group of people (\"parents\") sharing a belief today."
+          },
+          {
+            "option": "thinking",
+            "explanation": "Incorrect. An \"-ing\" word cannot function as the main action word on its own."
+          },
+          {
+            "option": "thought",
+            "explanation": "Incorrect. The second part of the sentence uses \"is\" (present time), so the first part must be in the present time too."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "A fast food meal usually ___ a lot of salt and sugar.",
+        "correctAnswer": "contains",
+        "explanation": "For permanent facts or features of one single item, add \"-s\" or \"-es\" to the action word.",
+        "wrongAnswerHint": "The word \"A\" means one. Find the option that ends in \"-s\".",
+        "options": [
+          "contain",
+          "contains",
+          "containing",
+          "contained"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "contain",
+            "explanation": "Incorrect. The basic word does not match because the word \"A\" shows we are talking about just one single meal."
+          },
+          {
+            "option": "contains",
+            "explanation": "Correct. We add the \"-s\" ending because the sentence describes the traits of a single item (\"A... meal\")."
+          },
+          {
+            "option": "containing",
+            "explanation": "Incorrect. An \"-ing\" word cannot link the subject to the details without a helper word."
+          },
+          {
+            "option": "contained",
+            "explanation": "Incorrect. The ingredients of a meal do not change, so we use the present time, not the past time."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Many fast food companies ___ advertisements for children.",
+        "correctAnswer": "create",
+        "explanation": "For regular actions or current habits of a plural group of businesses, use the basic action word.",
+        "wrongAnswerHint": "The subject is \"companies\" (plural). Look for the basic action stem.",
+        "options": [
+          "create",
+          "creates",
+          "creating",
+          "created"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "create",
+            "explanation": "Correct. \"Companies\" means more than one business, so we use the basic action word \"create.\""
+          },
+          {
+            "option": "creates",
+            "explanation": "Incorrect. You cannot add an \"s\" to the action word when a plural group (\"companies\") is doing the action."
+          },
+          {
+            "option": "creating",
+            "explanation": "Incorrect. This \"-ing\" form leaves the sentence incomplete."
+          },
+          {
+            "option": "created",
+            "explanation": "Incorrect. This is an ongoing business habit, not a past action that is finished."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Eating fast food every day ___ people gain weight.",
+        "correctAnswer": "makes",
+        "explanation": "When the subject is a whole action phrase (like \"Eating...\"), treat it as one single thing and add \"-s\" to the verb.",
+        "wrongAnswerHint": "Action subjects are singular. Choose the verb that ends in \"-s\".",
+        "options": [
+          "make",
+          "makes",
+          "making",
+          "made"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "make",
+            "explanation": "Incorrect. When an action phrase starting with an \"-ing\" word (like \"Eating...\") is the subject, it counts as one single concept and needs an \"s.\""
+          },
+          {
+            "option": "makes",
+            "explanation": "Correct. The verb ends in \"-s\" to match the single concept subject (\"Eating fast food every day\")."
+          },
+          {
+            "option": "making",
+            "explanation": "Incorrect. An \"-ing\" word cannot be the main action word without a helper verb like \"is.\""
+          },
+          {
+            "option": "made",
+            "explanation": "Incorrect. This is a factual cause-and-effect rule that is always true, so we use the present time."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Some people ___ fast food because they are too busy to cook.",
+        "correctAnswer": "choose",
+        "explanation": "To show a present reason or habit for a plural subject, use the basic action word without changes.",
+        "wrongAnswerHint": "The word \"people\" is plural. Pick the present verb without any extra endings.",
+        "options": [
+          "choose",
+          "chooses",
+          "choosing",
+          "chose"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "choose",
+            "explanation": "Correct. The word \"people\" means a group of individuals, so we use the basic action word \"choose.\""
+          },
+          {
+            "option": "chooses",
+            "explanation": "Incorrect. You cannot use the singular ending \"-s\" with the plural word \"people.\""
+          },
+          {
+            "option": "choosing",
+            "explanation": "Incorrect. This \"-ing\" verb cannot function as the main action word."
+          },
+          {
+            "option": "chose",
+            "explanation": "Incorrect. The second part of the sentence uses \"are\" (present time), so the first part must be present too."
+          }
+        ]
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Fast food restaurants ___ (offer) cheap meals for students.",
+        "correctAnswer": "offer",
+        "explanation": "The subject \"restaurants\" means more than one place, so we use the basic present verb \"offer\" with no changes.",
+        "wrongAnswerHint": "Do not add \"-s\" or \"-ed\" because the subject is plural."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Too much junk food ___ (increase) the risk of obesity.",
+        "correctAnswer": "increases",
+        "explanation": "\"Junk food\" is an uncountable noun and acts like a single thing, so the verb needs the singular ending \"-s\" (increases).",
+        "wrongAnswerHint": "Change the verb to its singular form by adding \"-s\"."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Many teenagers ___ (eat) fried chicken several times a week.",
+        "correctAnswer": "eat",
+        "explanation": "To show a regular habit of a group (\"Many teenagers\"), use the basic verb form in the present tense.",
+        "wrongAnswerHint": "Plural subjects match with basic verbs for regular habits."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Fast food advertising ___ (influence) young consumers strongly.",
+        "correctAnswer": "influences",
+        "explanation": "\"Advertising\" is an uncountable noun. It counts as one single subject, so the present verb must end in \"-s\" (influences).",
+        "wrongAnswerHint": "Uncountable nouns need a singular verb. Add \"-s\" to the word."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Some families ___ (prefer) fast food because it saves time.",
+        "correctAnswer": "prefer",
+        "explanation": "The subject \"families\" means more than one family unit, so we use the basic verb form \"prefer\" to show a general choice.",
+        "wrongAnswerHint": "Keep the verb in its basic form to match the plural subject."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "Many people eat fast food every week.",
+        "explanation": "Follow the basic sentence order: Subject (Many people) + Present Verb (eat) + Object (fast food) + Time phrase (every week).",
+        "wrongAnswerHint": "Put the time phrase \"every week\" at the very end of the sentence."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "Fast food often contains too much fat.",
+        "explanation": "Put frequency words like \"often\" directly between the subject and the main verb: Subject (Fast food) + often + Verb (contains) + Object.",
+        "wrongAnswerHint": "Place the word \"often\" before the verb, not after it."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "Students usually buy unhealthy snacks after class.",
+        "explanation": "Word order rule: Subject (Students) + Frequency word (usually) + Verb (buy) + Object + Time phrase (after class).",
+        "wrongAnswerHint": "Place \"usually\" right before the action verb \"buy.\""
+      },
+      {
+        "type": "SENTENCE_WRITING",
+        "question": "Write one complete sentence using all keywords and the Present Simple.",
+        "correctAnswer": "Many teenagers prefer fast food because it is convenient.",
+        "explanation": "Connect two simple present tense sentences using the linking word \"because\" to show a reason.",
+        "wrongAnswerHint": "Check that both verbs are in the present tense and that \"because\" links the two parts correctly."
+      },
+      {
+        "type": "SENTENCE_WRITING",
+        "question": "Write one complete sentence using all keywords and the Present Simple.",
+        "correctAnswer": "Fast food restaurants provide cheap meals, but they do not offer enough healthy options.",
+        "explanation": "Use the word \"but\" to show a contrast. For a plural subject (\"they\") in a negative present sentence, use \"do not + basic verb.\"",
+        "wrongAnswerHint": "Use \"do not\" instead of \"does not\" to match the plural word \"they.\""
+      },
+      {
+        "type": "GRAMMAR_TABLE",
+        "question": "Choose the grammar table with the most accurate rule.",
+        "correctAnswer": "A",
+        "explanation": "Present Simple rules: Plural subjects use basic verbs. Singular or uncountable subjects use verbs ending in \"-s\" or \"-es\".",
+        "wrongAnswerHint": "Find the rule map that correctly gives the \"-s\" ending only to singular subjects."
+      }
+    ]
+  },
+  {
+    "taskSlug": "modal-verbs",
+    "activities": [
+      {
+        "type": "MCQ",
+        "question": "People ___ eat too much fast food because it is unhealthy.",
+        "correctAnswer": "should not",
+        "explanation": "Use \"should not + basic verb\" to give advice against doing something bad or harmful.",
+        "wrongAnswerHint": "The text says it is \"unhealthy.\" Choose the helper verb that gives negative advice.",
+        "options": [
+          "should",
+          "should not",
+          "can",
+          "may"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "should",
+            "explanation": "Incorrect. \"Should\" means it is a good idea to do something, which gives bad advice for an \"unhealthy\" habit."
+          },
+          {
+            "option": "should not",
+            "explanation": "Correct. \"Should not\" gives the right health advice against a harmful action."
+          },
+          {
+            "option": "can",
+            "explanation": "Incorrect. \"Can\" talks about physical ability, not helpful health advice."
+          },
+          {
+            "option": "may",
+            "explanation": "Incorrect. \"May\" is for asking permission or showing a small chance, which does not fit here."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Fast food restaurants ___ offer healthier meals for children.",
+        "correctAnswer": "must",
+        "explanation": "Use \"must + basic verb\" to express a strong obligation, a strict rule, or an urgent necessity.",
+        "wrongAnswerHint": "Choose the word that shows a strong requirement, not just a weak option.",
+        "options": [
+          "must",
+          "might",
+          "can",
+          "could"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "must",
+            "explanation": "Correct. \"Must\" shows a strong duty, a direct rule, or an urgent need for action."
+          },
+          {
+            "option": "might",
+            "explanation": "Incorrect. \"Might\" shows a very weak chance, not a duty or responsibility."
+          },
+          {
+            "option": "can",
+            "explanation": "Incorrect. \"Can\" only means they have the ability, it does not show any duty or recommendation."
+          },
+          {
+            "option": "could",
+            "explanation": "Incorrect. \"Could\" sounds like a past option or a weak guess, which reduces the urgency."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Students ___ save time by eating fast food after school.",
+        "correctAnswer": "can",
+        "explanation": "Use the helper verb \"can + basic verb\" to show a real option, a possibility, or an ability in the present.",
+        "wrongAnswerHint": "Look for the word that means \"possible choice\" and does not need the word \"to.\"",
+        "options": [
+          "should",
+          "can",
+          "must",
+          "ought"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "should",
+            "explanation": "Incorrect. \"Should\" makes it sound like a duty, but this is just a practical choice or option."
+          },
+          {
+            "option": "can",
+            "explanation": "Correct. \"Can\" shows a real possibility or an available choice to save time."
+          },
+          {
+            "option": "must",
+            "explanation": "Incorrect. \"Must\" forces students to eat fast food as a strict rule, which is wrong."
+          },
+          {
+            "option": "ought",
+            "explanation": "Incorrect. The word \"ought\" cannot stand alone; it always needs the word \"to\" ($ought + to + verb$)."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Parents ___ encourage their children to eat more home-cooked meals.",
+        "correctAnswer": "should",
+        "explanation": "Use \"should + basic verb\" to give good advice or to state a positive recommendation.",
+        "wrongAnswerHint": "The sentence gives a good tip for parents. Avoid words that just mean ability or permission.",
+        "options": [
+          "should",
+          "may",
+          "can",
+          "could"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "should",
+            "explanation": "Correct. \"Should\" gives a good recommendation or a positive family duty for parents."
+          },
+          {
+            "option": "may",
+            "explanation": "Incorrect. \"May\" means giving permission to parents, which does not make sense here."
+          },
+          {
+            "option": "can",
+            "explanation": "Incorrect. \"Can\" only means they are physically able to do it, without giving any real advice."
+          },
+          {
+            "option": "could",
+            "explanation": "Incorrect. \"Could\" sounds like a past action or a weak guess, which weakens the advice."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Eating too much fast food ___ lead to obesity.",
+        "correctAnswer": "may",
+        "explanation": "Use \"may + basic verb\" to describe a real risk, a chance, or a scientific possibility.",
+        "wrongAnswerHint": "Select the helper word that shows a realistic chance without turning it into a piece of advice.",
+        "options": [
+          "should",
+          "may",
+          "must",
+          "ought"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "should",
+            "explanation": "Incorrect. \"Should\" makes it sound like gaining weight is a good recommendation, which is wrong."
+          },
+          {
+            "option": "may",
+            "explanation": "Correct. \"May\" accurately shows that there is a real health risk or a generic chance of gaining weight."
+          },
+          {
+            "option": "must",
+            "explanation": "Incorrect. \"Must\" means it happens 100% of the time to everyone, ignoring different body types."
+          },
+          {
+            "option": "ought",
+            "explanation": "Incorrect. This option is broken because it is missing the mandatory word \"to.\""
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Fast food companies ___ reduce the amount of sugar in their products.",
+        "correctAnswer": "ought to",
+        "explanation": "Most helper verbs link directly to the basic verb, but \"ought\" is an exception and always needs \"to\": $\\text{ought} + \\text{to} + \\text{basic verb}$.",
+        "wrongAnswerHint": "Find the only choice that correctly includes the word \"to\" before the action verb.",
+        "options": [
+          "ought",
+          "ought to",
+          "can to",
+          "should to"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "ought",
+            "explanation": "Incorrect. The word \"ought\" is broken without its matching partner word \"to.\""
+          },
+          {
+            "option": "ought to",
+            "explanation": "Correct. \"Ought to\" means the same as \"should\" and gives a strong, proper recommendation to companies."
+          },
+          {
+            "option": "can to",
+            "explanation": "Incorrect. Helper words like \"can\" can never be followed by the word \"to.\""
+          },
+          {
+            "option": "should to",
+            "explanation": "Incorrect. Helper words like \"should\" can never be followed by the word \"to.\""
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "People ___ choose healthier options instead of fries and soda.",
+        "correctAnswer": "should",
+        "explanation": "Give good advice or clear recommendations using the standard pattern: $Subject + should + \\text{basic verb}$.",
+        "wrongAnswerHint": "Choose the word that means \"good idea to do\" instead of just permission or ability.",
+        "options": [
+          "should",
+          "may / can / might"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "should",
+            "explanation": "Correct. \"Should\" gives a good, healthy lifestyle recommendation."
+          },
+          {
+            "option": "may / can / might",
+            "explanation": "Incorrect. These words change the meaning to permission or a random guess, failing to give clear advice."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Fast food restaurants ___ become more popular in the future.",
+        "correctAnswer": "might",
+        "explanation": "For future predictions that are possible but not 100% certain: use $might + \\text{basic verb}$.",
+        "wrongAnswerHint": "The text says \"in the future.\" Choose the word meant for making future guesses.",
+        "options": [
+          "should",
+          "can",
+          "might",
+          "ought to"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "should",
+            "explanation": "Incorrect. \"Should\" makes it sound like a good recommendation, but this is a business guess."
+          },
+          {
+            "option": "can",
+            "explanation": "Incorrect. \"Can\" talks about present ability, not a future market guess."
+          },
+          {
+            "option": "might",
+            "explanation": "Correct. \"Might\" shows a realistic but uncertain possibility for the future."
+          },
+          {
+            "option": "ought to",
+            "explanation": "Incorrect. This makes a business trend sound like a moral duty, which is wrong."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Children ___ eat vegetables together with fast food meals.",
+        "correctAnswer": "should",
+        "explanation": "To recommend healthy food habits: $Subject + should + \\text{basic verb}$.",
+        "wrongAnswerHint": "The sentence offers a healthy tip. Pick the helper word meant for giving advice.",
+        "options": [
+          "should",
+          "can / may / could"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "should",
+            "explanation": "Correct. \"Should\" gives a good nutritional tip for children."
+          },
+          {
+            "option": "can / may / could",
+            "explanation": "Incorrect. These options talk about ability, permission, or past states, which ruins the helpful advice."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Busy workers ___ not have enough time to cook at home.",
+        "correctAnswer": "may",
+        "explanation": "To show a realistic present probability or a lifestyle situation: $Subject + may + not + \\text{basic verb}$.",
+        "wrongAnswerHint": "Avoid options that create strict rules or broken structures. Look for a word that shows a realistic chance.",
+        "options": [
+          "should",
+          "may",
+          "must",
+          "ought"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "should",
+            "explanation": "Incorrect. \"Should not\" makes a lack of time sound like bad advice or a duty, which makes no sense."
+          },
+          {
+            "option": "may",
+            "explanation": "Correct. The phrase \"may not\" shows a highly realistic chance or probability in their daily lives."
+          },
+          {
+            "option": "must",
+            "explanation": "Incorrect. \"Must not\" means they are strictly forbidden from having time, which is incorrect."
+          },
+          {
+            "option": "ought",
+            "explanation": "Incorrect. This choice is broken because it is missing the required connector word \"to.\""
+          }
+        ]
+      },
+      {
+        "type": "MATCHING",
+        "question": "Match the modal verbs to the correct sentences (one is extra).",
+        "correctAnswer": "N/A",
+        "explanation": "N/A",
+        "wrongAnswerHint": "Review Modal Verbs. Make sure you use the correct modal verb for each sentence."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "People should avoid eating too much fast food.",
+        "explanation": "Put the advice helper word right before the main action: $Subject + should + \\text{basic verb } (avoid) + \\text{verb-ing } (eating) + Object$. Note that \"avoid\" needs a verb-ing after it.",
+        "wrongAnswerHint": "Put \"should\" before \"avoid\" and make sure \"eating\" has an \"-ing\" ending."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "Fast food can save time for busy workers.",
+        "explanation": "Sentence order: Subject (Fast food) + Helper word (can) + Basic verb (save) + Object (time) + Target group (for busy workers).",
+        "wrongAnswerHint": "Place the helper word \"can\" between the subject and the action verb."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "Children should choose healthier meals.",
+        "explanation": "Basic advisory order: Subject (Children) + Advice helper (should) + Verb (choose) + Object phrase (healthier meals).",
+        "wrongAnswerHint": "Place \"should\" right before the choice verb \"choose.\""
+      },
+      {
+        "type": "SENTENCE_WRITING",
+        "question": "Write one complete sentence using all keywords and the Present Simple.",
+        "correctAnswer": "People should eat less fast food because it contains too much fat.",
+        "explanation": "Write an advice sentence using \"should\" in the first part, then link it with \"because\" to a present tense singular fact ($it + contains$).",
+        "wrongAnswerHint": "Make sure the advice helper is in the first part and the present tense verb in the second part ends in \"-s\"."
+      },
+      {
+        "type": "SENTENCE_WRITING",
+        "question": "Write one complete sentence using all keywords and the Modal verbs.",
+        "correctAnswer": "Fast food restaurants must improve their menus if they want to attract health-conscious customers.",
+        "explanation": "Create an \"if\" sentence where the main part uses a strong duty helper (\"must\") to highlight an important requirement.",
+        "wrongAnswerHint": "Use the helper word \"must\" with a basic verb in the first part, and use the present verb \"want\" after \"if.\""
+      },
+      {
+        "type": "GRAMMAR_TABLE",
+        "question": "Choose the grammar table with the most accurate rule.",
+        "correctAnswer": "A",
+        "explanation": "True helper verbs (modals) never change their form, never take \"-s\" or \"-ed\", and must connect directly to a basic verb without the word \"to\" ($Subject + Modal + \\text{basic verb}$).",
+        "wrongAnswerHint": "Choose the rule chart that connects helper words directly to basic action stems without using \"to.\""
+      }
+    ]
+  },
+  {
+    "taskSlug": "conditional-sentences",
+    "activities": [
+      {
+        "type": "MCQ",
+        "question": "If people eat too much fast food, they ___ health problems.",
+        "correctAnswer": "will have",
+        "explanation": "Real-world if-sentences show future results based on present actions: $If + \\text{Present Tense}, Subject + will + \\text{basic verb}$.",
+        "wrongAnswerHint": "The if-part uses the present verb \"eat.\" Pick the matching future word \"will\" for the result part.",
+        "options": [
+          "have",
+          "will have",
+          "had",
+          "having"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "have",
+            "explanation": "Incorrect. The basic present form does not clearly show the future result of an if-sentence."
+          },
+          {
+            "option": "will have",
+            "explanation": "Correct. The future structure \"will + basic verb\" accurately shows the expected real-world result."
+          },
+          {
+            "option": "had",
+            "explanation": "Incorrect. The past tense breaks the rules because the if-part uses the present tense verb \"eat.\""
+          },
+          {
+            "option": "having",
+            "explanation": "Incorrect. A verb with \"-ing\" cannot stand alone as the action word of the main part."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "If fast food restaurants offer healthier meals, more customers ___ them.",
+        "correctAnswer": "will support",
+        "explanation": "Present conditions match with future results: Present tense in the if-part (\"offer\") pairs with the future tense in the result part (\"will support\").",
+        "wrongAnswerHint": "Find the future phrase using \"will\" to complete this if-sentence.",
+        "options": [
+          "support / supported / supporting",
+          "will support"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "support / supported / supporting",
+            "explanation": "Incorrect. These options break the future tense rule required for the result part of an if-sentence."
+          },
+          {
+            "option": "will support",
+            "explanation": "Correct. The future phrase \"will support\" accurately shows the expected business outcome."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "If children ___ too much soda, they may gain weight.",
+        "correctAnswer": "drink",
+        "explanation": "The if-part of a real-world conditional sentence uses the Present Simple tense. Adjust the verb to match whether the subject is singular or plural.",
+        "wrongAnswerHint": "The word \"children\" is plural. Choose the present verb form that does not have an \"-s\".",
+        "options": [
+          "drink",
+          "drinks",
+          "drank",
+          "drinking"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "drink",
+            "explanation": "Correct. The basic present verb \"drink\" matches the plural subject \"children\" inside the if-part."
+          },
+          {
+            "option": "drinks",
+            "explanation": "Incorrect. The ending \"-s\" is for singular subjects, but \"children\" means more than one person."
+          },
+          {
+            "option": "drank",
+            "explanation": "Incorrect. The past tense does not match the present helper word \"may\" in the result part."
+          },
+          {
+            "option": "drinking",
+            "explanation": "Incorrect. A standalone \"-ing\" verb cannot be the active verb of an if-part."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "People will save money if they ___ meals at home instead of buying fast food.",
+        "correctAnswer": "cook",
+        "explanation": "When the if-part comes second ($Future + if + \\text{Present}$), the verb after \"if\" must remain in the standard Present Simple tense.",
+        "wrongAnswerHint": "Make sure your choice is a present tense verb that matches the plural word \"they.\"",
+        "options": [
+          "cook",
+          "cooks / cooked / cooking"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "cook",
+            "explanation": "Correct. The basic present verb \"cook\" matches the plural word \"they\" inside the if-part."
+          },
+          {
+            "option": "cooks / cooked / cooking",
+            "explanation": "Incorrect. These choices introduce singular mismatches, past tenses, or broken structures."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "If teenagers eat more vegetables, they ___ healthier.",
+        "correctAnswer": "will become",
+        "explanation": "Real-world results use the future conditional layout: $If + \\text{Present Tense}, Subject + will + \\text{basic verb}$.",
+        "wrongAnswerHint": "Select the future tense choice to show the expected result of eating better.",
+        "options": [
+          "become / became / becoming",
+          "will become"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "become / became / becoming",
+            "explanation": "Incorrect. These options fail to use the future timeline required for real-world if-sentence results."
+          },
+          {
+            "option": "will become",
+            "explanation": "Correct. The future helper phrase \"will become\" completes the cause-and-effect pattern."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "If fast food companies reduce sugar in their products, customers ___ happier.",
+        "correctAnswer": "will be",
+        "explanation": "Future states in real-world if-sentences use the future form of the verb \"to be\": $If + \\text{Present}, Subject + will + be + \\text{Adjective}$.",
+        "wrongAnswerHint": "Complete the sentence by choosing the future form \"will be.\"",
+        "options": [
+          "are / were / being",
+          "will be"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "are / were / being",
+            "explanation": "Incorrect. These choices do not provide the future result layout needed to match the present condition \"reduce.\""
+          },
+          {
+            "option": "will be",
+            "explanation": "Correct. The future phrase \"will be\" shows the expected outcome for consumers."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "If parents teach children healthy eating habits, they ___ less junk food.",
+        "correctAnswer": "will eat",
+        "explanation": "Future behaviors based on a present condition use the standard pattern: $If + \\text{Present Tense}, Subject + will + \\text{basic verb}$.",
+        "wrongAnswerHint": "Choose the future tense option that goes with the present verb \"teach.\"",
+        "options": [
+          "eat / ate / eating",
+          "will eat"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "eat / ate / eating",
+            "explanation": "Incorrect. These options break the future tense rules required for the result part of an if-sentence."
+          },
+          {
+            "option": "will eat",
+            "explanation": "Correct. The future phrase \"will eat\" accurately predicts the children's future action."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "If people ___ fast food every day, they can become overweight.",
+        "correctAnswer": "eat",
+        "explanation": "Real-world if-sentences can use the helper word \"can\" in the result part to show a possibility, while the if-part stays in the standard Present Simple tense.",
+        "wrongAnswerHint": "Find the present tense verb without \"-s\" that matches the plural word \"people.\"",
+        "options": [
+          "eat",
+          "eats / ate / eating"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "eat",
+            "explanation": "Correct. The basic present verb \"eat\" matches the plural subject \"people\" inside the if-part."
+          },
+          {
+            "option": "eats / ate / eating",
+            "explanation": "Incorrect. These choices introduce singular errors, past tenses, or broken structures."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "If restaurants improve food quality, customers ___ there more often.",
+        "correctAnswer": "will return",
+        "explanation": "Expected business results based on specific changes use the future conditional layout: $If + \\text{Present Tense}, Subject + will + \\text{basic verb}$.",
+        "wrongAnswerHint": "Link the present action \"improve\" with its matching future result phrase.",
+        "options": [
+          "return / returned / returning",
+          "will return"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "return / returned / returning",
+            "explanation": "Incorrect. These choices do not build the future result framework needed for the main part."
+          },
+          {
+            "option": "will return",
+            "explanation": "Correct. The future helper phrase \"will return\" states the logical business outcome."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "People may feel tired if they ___ unhealthy food regularly.",
+        "correctAnswer": "eat",
+        "explanation": "When the main part uses a possibility word like \"may,\" the if-part must stay in the standard Present Simple tense to make a correct sentence.",
+        "wrongAnswerHint": "Select the present tense option that matches the plural word \"they.\"",
+        "options": [
+          "eat",
+          "eats / ate / eating"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "eat",
+            "explanation": "Correct. The basic present verb \"eat\" matches the plural word \"they\" inside the if-part."
+          },
+          {
+            "option": "eats / ate / eating",
+            "explanation": "Incorrect. These options cause subject mismatches, past tense shifts, or broken structures."
+          }
+        ]
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "If fast food ______ (become) cheaper than healthy meals, more teenagers will choose it regularly.",
+        "correctAnswer": "becomes",
+        "explanation": "The if-part needs the Present Simple tense. Since \"fast food\" is an uncountable noun acting as a singular subject, the verb needs an \"-s\" ending ($becomes$).",
+        "wrongAnswerHint": "Change the verb to its singular present form by adding \"-s\"."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Children may develop unhealthy eating habits if junk food advertisements ______ (appear) too frequently online.",
+        "correctAnswer": "appear",
+        "explanation": "The if-part features the plural subject \"advertisements,\" which requires the basic present tense verb \"appear\" without changes.",
+        "wrongAnswerHint": "Leave the verb in its basic form to match the plural subject noun."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "If healthy meals ______ (not serve) in school cafeterias regularly, students may rely more on fast food.",
+        "correctAnswer": "are not served",
+        "explanation": "This requires a passive (action done to the subject) layout for a plural subject (\"meals\") in the present tense: $\\text{Plural Subject} + \\text{are} + \\text{not} + \\text{Verb-ed/V3}$ ($are\\,not\\,served$).",
+        "wrongAnswerHint": "Build a negative present passive phrase that matches a plural subject."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Teenagers will face serious health problems if a fast-food company constantly ______ (promote) unhealthy eating trends through social media.",
+        "correctAnswer": "promotes",
+        "explanation": "The if-part uses a single company (\"a fast-food company\") as the subject, so the present verb needs an \"-s\" ending ($promotes$).",
+        "wrongAnswerHint": "Add the singular ending \"-s\" to the verb to match the single corporate subject."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "If parents ______ (not encourage) balanced diets at home, children may consume excessive amounts of junk food.",
+        "correctAnswer": "do not encourage",
+        "explanation": "To make a negative condition with a plural subject (\"parents\"), use the present negative helper layout: $\\text{do} + \\text{not} + \\text{basic verb}$ ($do\\,not\\,encourage$).",
+        "wrongAnswerHint": "Use the plural negative helper form to maintain correct subject-verb matching."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "If people eat too much fast food, they will gain weight.",
+        "explanation": "Arrange the sentence by putting the if-part first: $If + \\text{Subject 1} + \\text{Present Verb}, \\text{Subject 2} + will + \\text{Basic Verb}$. Use a comma to separate the two parts.",
+        "wrongAnswerHint": "Start with the \"If\" part, put a comma after \"fast food,\" and follow with the future result part."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "Customers will choose healthier meals if restaurants offer them.",
+        "explanation": "Place the clauses in reverse order ($\\text{Result part} + if + \\text{If-part}$). Do not use a comma when the word \"if\" links the sentence in the middle.",
+        "wrongAnswerHint": "Place the future result part first, followed immediately by the \"if\" part with no punctuation."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "If teenagers exercise more, they may avoid health problems.",
+        "explanation": "When an if-sentence shows a possible chance instead of a guarantee, use the possibility helper word \"may\" in the result part instead of \"will.\"",
+        "wrongAnswerHint": "Start the sentence with \"If,\" separate the parts with a comma, and use the word \"may\" in the second part."
+      },
+      {
+        "type": "SENTENCE_WRITING",
+        "question": "Write one complete sentence using all keywords and the Conditional sentences.",
+        "correctAnswer": "If people cook at home more often, they will eat less fast food.",
+        "explanation": "Build a standard real-world if-sentence that links a present plural condition ($people + cook$) with a future predictive result ($they + will + eat$).",
+        "wrongAnswerHint": "Verify that the if-part uses the simple present tense and the result part uses the future tense with \"will.\""
+      },
+      {
+        "type": "SENTENCE_WRITING",
+        "question": "Write one complete sentence using all keywords and the Conditional sentences.",
+        "correctAnswer": "Fast food companies will attract more customers if they create healthier menus.",
+        "explanation": "Construct an if-sentence with the future result part positioned first. Make sure the verb in the if-part matches the plural word \"they\" ($they + create$).",
+        "wrongAnswerHint": "Place the \"will\" part at the beginning, do not use a comma, and use a basic present verb after \"if.\""
+      },
+      {
+        "type": "GRAMMAR_TABLE",
+        "question": "Choose the grammar table with the most accurate rule.",
+        "correctAnswer": "A",
+        "explanation": "The real-world conditional model handles realistic cause-and-effect patterns using the formula: $If + S + V(s/es) [Present], S + will/can/may + V_{base} [Future]$.",
+        "wrongAnswerHint": "Choose the rule diagram that pairs a present-tense conditional clause with a future-tense result clause."
+      }
+    ]
+  },
+  {
+    "taskSlug": "relative-clauses",
+    "activities": [
+      {
+        "type": "MCQ",
+        "question": "Fast food is food ___ people can prepare very quickly.",
+        "correctAnswer": "which",
+        "explanation": "Non-human items or objects are modified using the connecting word \"which\" or \"that\" to add specific descriptions.",
+        "wrongAnswerHint": "The noun head is \"food\" (an object). Choose the matching non-human connector word.",
+        "options": [
+          "who",
+          "which",
+          "where",
+          "whose"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "who",
+            "explanation": "Incorrect. \"Who\" is a connecting word meant only for people, so it cannot be used for \"food.\""
+          },
+          {
+            "option": "which",
+            "explanation": "Correct. The connector \"which\" is the standard choice for non-human items (\"food\")."
+          },
+          {
+            "option": "where",
+            "explanation": "Incorrect. \"Where\" is used for locations or places, which does not fit the noun \"food.\""
+          },
+          {
+            "option": "whose",
+            "explanation": "Incorrect. \"Whose\" shows ownership and must be followed immediately by a noun."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Teenagers ___ eat fast food regularly may have health problems.",
+        "correctAnswer": "who",
+        "explanation": "People subjects are described using the connecting word \"who\" when it acts as the subject of the description clause.",
+        "wrongAnswerHint": "The word \"Teenagers\" refers to people. Select the relative connector designed for human subjects.",
+        "options": [
+          "who",
+          "which / whose / where"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "who",
+            "explanation": "Correct. \"Who\" is the right subject connector word to replace the human plural noun \"Teenagers.\""
+          },
+          {
+            "option": "which / whose / where",
+            "explanation": "Incorrect. These options introduce non-human markers, ownership words, or place markers instead of a person marker."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Fast food restaurants are places ___ people can buy cheap meals.",
+        "correctAnswer": "where",
+        "explanation": "Physical locations, cities, or place nouns use the relative word \"where\" to introduce a full descriptive clause.",
+        "wrongAnswerHint": "The noun head is \"places.\" Select the location connector word.",
+        "options": [
+          "who / whose / which",
+          "where"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "who / whose / which",
+            "explanation": "Incorrect. These pronouns fail to address the location nature of the noun \"places.\""
+          },
+          {
+            "option": "where",
+            "explanation": "Correct. The relative location word \"where\" properly describes the spatial noun \"places\" ($\\text{where} = \\text{in those places}$)."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Many burgers ___ contain too much fat are unhealthy.",
+        "correctAnswer": "which",
+        "explanation": "When describing object subjects, use the relative connector \"which.\" The verb that follows matches the singular or plural value of the noun ($burgers \\rightarrow contain$).",
+        "wrongAnswerHint": "The noun head is \"burgers.\" Pick the non-human subject connector word.",
+        "options": [
+          "who / where / whose",
+          "which"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "who / where / whose",
+            "explanation": "Incorrect. These choices create person classification errors, location confusion, or broken grammar fragments."
+          },
+          {
+            "option": "which",
+            "explanation": "Correct. \"Which\" properly describes the non-human items \"Many burgers\" and acts as the subject of the descriptive clause."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Parents ___ care about their children’s health often limit fast food consumption.",
+        "correctAnswer": "who",
+        "explanation": "Descriptive clauses that modify human subjects use the pattern: $\\text{Human Noun} + \\text{who} + \\text{Verb Phrase}$.",
+        "wrongAnswerHint": "\"Parents\" refers to humans. Choose the relative connector designed to handle human subjects.",
+        "options": [
+          "who",
+          "which / where / whose"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "who",
+            "explanation": "Correct. The word \"who\" correctly stands for the human plural subject \"Parents\" inside the descriptive clause."
+          },
+          {
+            "option": "which / where / whose",
+            "explanation": "Incorrect. These entries introduce non-human errors, location confusion, or ownership gaps."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Fast food companies ___ advertisements target children earn large profits.",
+        "correctAnswer": "whose",
+        "explanation": "To show ownership connections within descriptive clauses, use \"whose\" to link two nouns: $\\text{Noun 1} + \\text{whose} + \\text{Noun 2}$.",
+        "wrongAnswerHint": "The phrase implies advertisements *belonging to* the companies. Select the ownership connector word.",
+        "options": [
+          "who / where / which",
+          "whose"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "who / where / which",
+            "explanation": "Incorrect. These choices cannot show ownership, leaving the connection to \"advertisements\" broken."
+          },
+          {
+            "option": "whose",
+            "explanation": "Correct. The ownership connector \"whose\" successfully shows that the advertisements belong to the fast food companies."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "People ___ eat too much junk food may become overweight.",
+        "correctAnswer": "who",
+        "explanation": "Human group nouns acting as active subjects use the following profile: $\\text{People} + \\text{who} + \\text{basic verb}$.",
+        "wrongAnswerHint": "\"People\" requires a human subject connector word. Select the correct match.",
+        "options": [
+          "whose / which / where",
+          "who"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "whose / which / where",
+            "explanation": "Incorrect. These options fail to provide the human subject marker needed for the word \"People.\""
+          },
+          {
+            "option": "who",
+            "explanation": "Correct. \"Who\" satisfies the grammar rule by modifying the human plural word \"People\" as a subject connector."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Restaurants ___ provide healthy options attract more customers.",
+        "correctAnswer": "which",
+        "explanation": "Companies, businesses, and commercial venues are treated as non-human items, requiring the subject relative word \"which\" or \"that.\"",
+        "wrongAnswerHint": "Treat \"Restaurants\" as a non-human subject entity, and select its corresponding connector word.",
+        "options": [
+          "where / who / whose",
+          "which"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "where / who / whose",
+            "explanation": "Incorrect. These options alter the meaning or violate the non-human classification of the subject business."
+          },
+          {
+            "option": "which",
+            "explanation": "Correct. The connector \"which\" correctly acts as the subject word for the business noun \"Restaurants.\""
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Fast food is one reason ___ many people gain weight.",
+        "correctAnswer": "why",
+        "explanation": "Explanations use the relative word \"why\" to connect the noun head \"the reason\" to a descriptive clause that explains the cause.",
+        "wrongAnswerHint": "The noun head is \"reason.\" Select the relative word used for causal explanations.",
+        "options": [
+          "why",
+          "who / which / where"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "why",
+            "explanation": "Correct. The causal connector word \"why\" is the standard grammatical choice to follow the noun \"reason.\""
+          },
+          {
+            "option": "who / which / where",
+            "explanation": "Incorrect. These words fail to show the causal connection required by the noun \"reason.\""
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Children ___ parents cook healthy meals usually eat less fast food.",
+        "correctAnswer": "whose",
+        "explanation": "To show an ownership or family connection, use the relative word \"whose\" followed directly by the related noun: $\\text{Human Noun} + \\text{whose} + \\text{Related Noun} + \\text{Verb}$.",
+        "wrongAnswerHint": "The phrase implies \"the parents *of* the children.\" Choose the relative word that shows ownership.",
+        "options": [
+          "who / which / where",
+          "whose"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "who / which / where",
+            "explanation": "Incorrect. These choices create broken fragments because they cannot show the family connection between children and parents."
+          },
+          {
+            "option": "whose",
+            "explanation": "Correct. The ownership connector \"whose\" successfully shows the family relationship (the parents of the children)."
+          }
+        ]
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Fast food restaurants ___ (which) sell unhealthy meals should improve their menus.",
+        "correctAnswer": "which",
+        "explanation": "Use the non-human subject connector \"which\" to describe the business noun \"Fast food restaurants\" and act as the subject for the verb \"sell.\"",
+        "wrongAnswerHint": "Provide the relative word that describes non-human business entities acting as subjects."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Teenagers ___ (who) eat fast food every day may face health issues.",
+        "correctAnswer": "who",
+        "explanation": "Insert the human subject connector \"who\" to describe the plural noun \"Teenagers\" and serve as the subject for the present tense verb \"eat.\"",
+        "wrongAnswerHint": "Use the standard subject relative connector word reserved for human individuals."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Many customers prefer restaurants ___ (which) offer healthier food choices.",
+        "correctAnswer": "which",
+        "explanation": "The object plural noun \"restaurants\" requires the non-human relative connector \"which\" to introduce the defining description clause.",
+        "wrongAnswerHint": "Choose the relative word that replaces non-human objects or business locations."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Fast food is one reason ___ (why) obesity rates continue to rise.",
+        "correctAnswer": "why",
+        "explanation": "The noun head \"reason\" requires the causal relative word \"why\" to properly introduce the explanation clause that follows.",
+        "wrongAnswerHint": "Connect the noun \"reason\" to its explanatory clause using the correct causal relative word."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Children ___ (whose) parents allow too much junk food often develop unhealthy habits.",
+        "correctAnswer": "whose",
+        "explanation": "The family relationship (the parents of the children) requires the ownership relative connector \"whose\" placed directly before the noun \"parents.\"",
+        "wrongAnswerHint": "Use the possessive relative pronoun to link the children to their parents."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "People who eat too much fast food may become unhealthy.",
+        "explanation": "Arrange the sentence by placing the description clause directly inside the main sentence: $\\text{Subject Noun} (People) + \\text{Description Clause} (who\\,eat\\,too\\,much\\,fast\\,food) + \\text{Main Predicate} (may\\,become\\,unhealthy)$.",
+        "wrongAnswerHint": "Place the \"who\" clause immediately after the subject \"People,\" and close the sentence with the main verb phrase."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "Restaurants which offer healthy meals attract more families.",
+        "explanation": "Structure the sentence by embedding the non-human description clause: $\\text{Subject Noun} (Restaurants) + \\text{Relative Segment} (which\\,offer\\,healthy\\,meals) + \\text{Main Plural Verb} (attract) + \\text{Object}$.",
+        "wrongAnswerHint": "Embed the \"which\" clause directly after the primary noun \"Restaurants,\" and ensure the main verb \"attract\" remains uninflected."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "Children whose parents cook at home often eat less junk food.",
+        "explanation": "Construct the ownership relative layout: $\\text{Main Noun} (Children) + \\text{Ownership Connector} (whose) + \\text{Related Head} (parents) + \\text{Relative Verb Group} + \\text{Main Clause Ending}$.",
+        "wrongAnswerHint": "Place the phrase \"whose parents\" directly after \"Children,\" followed by the relative action and the main predicate."
+      },
+      {
+        "type": "SENTENCE_WRITING",
+        "question": "Write one complete sentence using all keywords and the Relative clauses.",
+        "correctAnswer": "Fast food restaurants which serve healthier meals become more popular.",
+        "explanation": "Build a complex sentence by embedding a description clause starting with \"which\" to modify the plural subject. Match the main verb \"become\" with the plural subject.",
+        "wrongAnswerHint": "Embed the \"which\" clause right after \"restaurants,\" and make sure your main verb does not have an \"-s\" suffix."
+      },
+      {
+        "type": "SENTENCE_WRITING",
+        "question": "Write one complete sentence using all keywords and the Relative clauses.",
+        "correctAnswer": "Teenagers who eat too much fast food may develop unhealthy habits.",
+        "explanation": "Write a complex sentence that uses the human connector \"who\" to describe the plural subject \"Teenagers,\" followed by a helper verb phrase in the main part.",
+        "wrongAnswerHint": "Position the \"who\" description clause immediately after the subject \"Teenagers\" to create a well-structured sentence."
+      },
+      {
+        "type": "GRAMMAR_TABLE",
+        "question": "Choose the grammar table with the most accurate rule.",
+        "correctAnswer": "A",
+        "explanation": "Relative connector words are categorized by noun type: \"Who\" describes human subjects, \"Which\" describes non-human items, \"Whose\" indicates ownership, and \"Where\" tracks locations.",
+        "wrongAnswerHint": "Select the summary chart that correctly classifies clauses based on their relative connectors."
+      }
+    ]
+  },
+  {
+    "taskSlug": "complex-sentences",
+    "activities": [
+      {
+        "type": "MCQ",
+        "question": "Many teenagers believe misleading health advice ___ they trust social media influencers too easily.",
+        "correctAnswer": "because",
+        "explanation": "Connecting words of cause (like \"because\") link a main sentence to a subordinate clause that explains the reason behind it.",
+        "wrongAnswerHint": "The second part provides the reason for the action. Select the appropriate causal connecting word.",
+        "options": [
+          "although",
+          "because",
+          "unless",
+          "while"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "although",
+            "explanation": "Incorrect. \"Although\" introduces a contrast, which breaks the logical cause-and-effect relationship here."
+          },
+          {
+            "option": "because",
+            "explanation": "Correct. The connecting word \"because\" properly introduces the part that explains the reason for the behavior."
+          },
+          {
+            "option": "unless",
+            "explanation": "Incorrect. \"Unless\" means \"if not,\" which distorts the logical meaning of the sentence."
+          },
+          {
+            "option": "while",
+            "explanation": "Incorrect. \"While\" shows actions happening at the same time, which fails to show the clear reason."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "___ many influencers share health tips online, not all of them have medical knowledge.",
+        "correctAnswer": "Although",
+        "explanation": "Contrast sentences use connecting words like \"Although\" or \"Even though\" to join two opposing realities together.",
+        "wrongAnswerHint": "The two parts present conflicting ideas (cheap vs. unhealthy). Select the word that indicates contrast.",
+        "options": [
+          "Because / If / Since",
+          "Although"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "Because / If / Since",
+            "explanation": "Incorrect. These options imply that cheapness directly causes bad health, which ruins the logical contrast."
+          },
+          {
+            "option": "Although",
+            "explanation": "Correct. The connecting word \"Although\" successfully introduces a contrast that balances low cost with health risks."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "People may avoid dangerous medical trends ___ they verify online information carefully.",
+        "correctAnswer": "if",
+        "explanation": "Conditional sentences use the connector \"if\" to link a potential real-world outcome with its triggering condition.",
+        "wrongAnswerHint": "The main part features the possibility helper word \"may.\" Choose the conjunction that introduces the condition.",
+        "options": [
+          "although / because / while",
+          "if"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "although / because / while",
+            "explanation": "Incorrect. These options alter the sentence structure away from the conditional pattern required by the modal \"may.\""
+          },
+          {
+            "option": "if",
+            "explanation": "Correct. The connecting word \"if\" introduces the conditional part that leads to the physical outcome."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Many users follow unreliable health advice ___ they do not recognize misinformation online.",
+        "correctAnswer": "because",
+        "explanation": "Causal sentences rely on the connecting word \"because\" to anchor the explanatory part to the main action.",
+        "wrongAnswerHint": "The second part explains why users follow bad advice. Select the connector that marks a cause or reason.",
+        "options": [
+          "because",
+          "although / unless / while"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "because",
+            "explanation": "Correct. \"Because\" introduces the causal part that explains why users follow unreliable advice."
+          },
+          {
+            "option": "although / unless / while",
+            "explanation": "Incorrect. These choices break the logical cause-and-effect connection between unrecognised information and behavior."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "___ social media platforms attempt to control misinformation, false health claims still spread rapidly.",
+        "correctAnswer": "Although",
+        "explanation": "Contrast clauses placed at the beginning of a sentence must be followed by a comma, and they should not contain the coordinating word \"but.\"",
+        "wrongAnswerHint": "The text describes an ironic contrast. Pick the contrast connecting word.",
+        "options": [
+          "Because / If / Since",
+          "Mechanical / Although"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "Because / If / Since",
+            "explanation": "Incorrect. These connectors create an illogical cause-and-effect pattern that ruins the sentence's meaning."
+          },
+          {
+            "option": "Mechanical / Although",
+            "explanation": "Correct. \"Choose\" successfully introduces the contrast, highlighting the gap between corporate efforts and rapid spread."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "People can make safer health decisions ___ they consult professional medical sources.",
+        "correctAnswer": "if",
+        "explanation": "Conditional sentences link a potential risk clause (using helper words like may or can) with a present tense condition using the connector \"if.\"",
+        "wrongAnswerHint": "Select the conditional connector that links parental behavior to the potential outcome.",
+        "options": [
+          "because / although / while",
+          "if"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "because / although / while",
+            "explanation": "Incorrect. These words do not fit the conditional probability pattern established by the helper verb \"may.\""
+          },
+          {
+            "option": "if",
+            "explanation": "Correct. \"If\" introduces the parental behavior as the conditional trigger for the children's habits."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Many influencers continue spreading questionable medical advice ___ they want to attract more online attention.",
+        "correctAnswer": "because",
+        "explanation": "Complex sentences that explain motivation rely on the causal connector \"because\" to introduce the underlying reason.",
+        "wrongAnswerHint": "The final clause explains the reason for phone use. Choose the causal connector.",
+        "options": [
+          "although / unless / while",
+          "because"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "although / unless / while",
+            "explanation": "Incorrect. These terms distort the logical relationship between the action and its motivation."
+          },
+          {
+            "option": "because",
+            "explanation": "Correct. \"Because\" introduces the causal clause that explains why influencers continue this behavior."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "___ reducing online misinformation is difficult, governments and platforms should still take action.",
+        "correctAnswer": "Although",
+        "explanation": "Concessive sentences use the layout: $\\text{Although} + \\text{Clause}_{\\text{positive}}, \\text{Clause}_{\\text{negative}}$ to weigh advantages against disadvantages.",
+        "wrongAnswerHint": "The sentence contrasts a benefit with a risk. Select the contrast connecting word.",
+        "options": [
+          "Because / If / Since",
+          "Although"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "Because / If / Since",
+            "explanation": "Incorrect. These options create an illogical pattern between saving time and causing health issues, ignoring the clear contrast."
+          },
+          {
+            "option": "Although",
+            "explanation": "Correct. \"Although\" introduces the contrast, balancing the immediate benefit (saving time) against the long-term risk."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Users may develop unhealthy habits ___ they constantly follow dangerous online trends.",
+        "correctAnswer": "if",
+        "explanation": "Subordinate parts introduced by the conditional connector \"if\" outline the specific behavior that could trigger the outcome predicted in the main part.",
+        "wrongAnswerHint": "Choose the conditional connector that treats daily fast food consumption as the triggering condition.",
+        "options": [
+          "because / although / while",
+          "if"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "because / although / while",
+            "explanation": "Incorrect. These selections fail to build the necessary conditional structure to match the main part's potential outcome."
+          },
+          {
+            "option": "if",
+            "explanation": "Correct. \"If\" introduces the daily habit as the conditional cause of potential poor health."
+          }
+        ]
+      },
+      {
+        "type": "MCQ",
+        "question": "Many people become confused ___ they receive conflicting medical advice online.",
+        "correctAnswer": "because",
+        "explanation": "Sentences that explain motivation rely on the causal connector \"because\" to introduce the underlying reason.",
+        "wrongAnswerHint": "The final clause explains the reason for cooking at home. Choose the causal connector.",
+        "options": [
+          "although / unless / while",
+          "because"
+        ],
+        "optionsExplanations": [
+          {
+            "option": "although / unless / while",
+            "explanation": "Incorrect. These conjunctions break the logical causal link between wanting healthy food and cooking at home."
+          },
+          {
+            "option": "because",
+            "explanation": "Correct. \"Because\" introduces the motivating reason behind the family's choice to cook at home."
+          }
+        ]
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Many teenagers trust misleading health advice ___ (because) they spend too much time on social media.",
+        "correctAnswer": "because",
+        "explanation": "Connect the independent action clause to its motivating reasons using the causal subordinating conjunction \"because.\"",
+        "wrongAnswerHint": "Supply the subordinating conjunction that introduces a reason or cause."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "___ (Although) many websites provide accurate information, users still believe fake medical claims.",
+        "correctAnswer": "Although",
+        "explanation": "Start the contrast sentence with \"Although\" to create a clear contrast between the availability of accurate information and consumer credulity.",
+        "wrongAnswerHint": "Use the scarcest conjunction that highlights an opposition or contrast at the beginning of a sentence."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "People can avoid dangerous health misinformation ___ (if) they verify online sources carefully.",
+        "correctAnswer": "if",
+        "explanation": "Use the conditional conjunction \"if\" to establish careful verification as the prerequisite condition for avoiding misinformation.",
+        "wrongAnswerHint": "Insert the conjunction that introduces a requirement or condition."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "Users often become anxious ___ (because) they read conflicting health advice online.",
+        "correctAnswer": "because",
+        "explanation": "Use the causal conjunction \"because\" to link the users' anxiety directly to reading conflicting advice.",
+        "wrongAnswerHint": "Choose the conjunction that explains the underlying cause or reason."
+      },
+      {
+        "type": "GAP_FILL",
+        "question": "___ (Unless) governments introduce stricter regulations, misinformation may continue spreading online.",
+        "correctAnswer": "Unless",
+        "explanation": "The conditional conjunction \"Unless\" introduces a negative condition (= If not), which pairs with a potential continuing outcome in the main clause.",
+        "wrongAnswerHint": "Use the conditional conjunction that introduces a negative prerequisite at the start of a sentence."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "Many people follow misleading health advice online because they trust influencers.",
+        "explanation": "Arrange the complex sentence with the causal clause at the end: $\\text{Subject}_{1} + \\text{Verb}_{1} + \\text{Object}_{1} + \\text{because} + \\text{Subject}_{2} + \\text{Verb}_{2} + \\text{Object}_{2}$. Do not use a comma.",
+        "wrongAnswerHint": "Place the main clause first, followed by the conjunction \"because\" and the causal clause."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "Although professional doctors provide accurate advice, some users trust online influencers more.",
+        "explanation": "Structure the concessive sentence with the contrast clause first: $\\text{Although} + \\text{Subject}_{1} + \\text{Verb}_{1} + \\text{Object}_{1}, \\text{Subject}_{2} + \\text{Verb}_{2} + \\text{Object}_{2} + \\text{Modifier}$. Remember to use a comma between the clauses.",
+        "wrongAnswerHint": "Start the sentence with \"Although,\" place a comma after the object \"advice,\" and follow with the main clause."
+      },
+      {
+        "type": "UNSCRAMBLE",
+        "question": "Type the correct sentence.",
+        "correctAnswer": "If people improve digital literacy, they may identify misinformation more easily.",
+        "explanation": "Order the conditional components sequentially: $\\text{If} + \\text{Subject}_{1} + \\text{Verb}_{1} + \\text{Object}_{1}, \\text{Subject}_{2} + \\text{may} + \\text{Verb}_{2}$.",
+        "wrongAnswerHint": "Start the sentence with the conditional conjunction \"If,\" use a comma to separate the clauses, and place the modal verb phrase in the second clause."
+      },
+      {
+        "type": "SENTENCE_WRITING",
+        "question": "Write one complete sentence using all keywords and the Complex sentences.",
+        "correctAnswer": "Although fast food is convenient, people should not eat it too often.",
+        "explanation": "Use the contrast connector \"Although\" at the start of the sentence to contrast convenience with health, and use the negative advice helper \"should not\" in the main part.",
+        "wrongAnswerHint": "Start the sentence with \"Although,\" insert a comma after the first part, and use \"should not\" in the main clause."
+      },
+      {
+        "type": "SENTENCE_WRITING",
+        "question": "Write one complete sentence using all keywords and the Complex sentences.",
+        "correctAnswer": "People can avoid dangerous health advice if they consult professional medical experts regularly.",
+        "explanation": "Construct a complex conditional sentence with the conjunction \"if\" positioned in the middle, connecting risk avoidance with professional consultation.",
+        "wrongAnswerHint": "Place the main clause before the conjunction \"if,\" omit the comma, and use a present-tense plural verb after \"if.\""
+      },
+      {
+        "type": "GRAMMAR_TABLE",
+        "question": "Choose the grammar table with the most accurate rule.",
+        "correctAnswer": "A",
+        "explanation": "Complex sentences consist of an independent clause joined to a subordinate clause using subordinating conjunctions that establish relationships of cause (because), concession (although), or condition (if).",
+        "wrongAnswerHint": "Select the summary table that correctly classifies clauses based on their subordinating conjunctions."
+      }
+    ]
+  }
+]

@@ -364,22 +364,22 @@ const groupSentenceIssues = (issues = []) =>
   }, {});
 
 const SentenceIssueGroups = ({ issues = [] }) => {
-  const groups = groupSentenceIssues(issues);
-  const groupKeys = Object.keys(groups);
-  const [activeGroup, setActiveGroup] = useState(groupKeys[0] || "");
+  const groups = useMemo(() => groupSentenceIssues(issues), [issues]);
+  const groupKeys = useMemo(() => Object.keys(groups), [groups]);
+  const [activeGroup, setActiveGroup] = useState("");
 
   useEffect(() => {
-    if (!groupKeys.includes(activeGroup)) {
-      setActiveGroup(groupKeys[0] || "");
+    if (groupKeys.length > 0 && (!activeGroup || !groupKeys.includes(activeGroup))) {
+      setActiveGroup(groupKeys[0]);
     }
-  }, [activeGroup, groupKeys.join("|")]);
+  }, [activeGroup, groupKeys]);
 
   if (!groupKeys.length) return null;
 
   const activeIssues = groups[activeGroup] || [];
 
   return (
-    <div className="sentence-feedback-groups rounded-paper border border-danger/25 bg-surface p-4">
+    <div className="sentence-feedback-groups rounded-[20px] border border-danger/30 bg-gradient-to-br from-white to-danger/10 p-6 shadow-md">
       <p className="font-display text-sm font-black uppercase text-danger">Issues to review</p>
       <div className="mt-3 flex flex-wrap gap-2" role="tablist" aria-label="Sentence feedback groups">
         {groupKeys.map((key) => (
@@ -401,7 +401,7 @@ const SentenceIssueGroups = ({ issues = [] }) => {
       </div>
       <div className="mt-4 space-y-3">
         {activeIssues.map((issue, index) => (
-          <article key={`${activeGroup}-${issue.originalText}-${issue.correction}-${index}`} className="sentence-issue-card rounded-paper border border-border bg-white p-4 text-text">
+          <article key={`${activeGroup}-${issue.originalText}-${issue.correction}-${index}`} className="sentence-issue-card rounded-[16px] border border-danger/20 bg-gradient-to-r from-white to-danger/5 p-5 shadow-sm text-text">
             <div className="flex flex-wrap items-center gap-2">
               <span className="rounded-full bg-danger px-3 py-1 font-mono text-xs font-black uppercase text-white">
                 {getSentenceIssueLabel(issue.type)}
@@ -459,6 +459,8 @@ const buildShuffledOptionsById = (items = []) =>
   items.reduce((map, item) => {
     if (item.questionType === "MCQ" && Array.isArray(item.options)) {
       map[item._id] = shuffleMcqOptions(item.options, item.correctAnswer);
+    } else if (item.questionType === "MATCHING" && item.matchingData?.pairs) {
+      map[item._id] = shuffle(item.matchingData.pairs.map(p => p.answer));
     }
     return map;
   }, {});
@@ -551,12 +553,14 @@ const FeedbackPanel = ({ item, result, activeIssueIndex, setActiveIssueIndex }) 
         </div>
       )}
 
-      <div className="feedback-explanation-card mt-3 rounded-paper border border-warning/40 bg-warning/15 p-4">
+      <div className="feedback-explanation-card mt-3 rounded-paper p-4">
         <p className="font-display text-sm font-bold uppercase">Explanation</p>
-        <p className="mt-2 text-base leading-7">
+        <p className="mt-2 text-base leading-7 whitespace-pre-line">
           {isGrammarTable
             ? item?.grammarTableChallenge?.explanation || result.explanation
-            : result.grammarExplanation || result.explanation}
+            : item?.questionType === "MATCHING"
+              ? item?.matchingData?.explanationBox || result.explanation
+              : result.grammarExplanation || result.explanation}
         </p>
       </div>
     </div>
@@ -600,6 +604,10 @@ const evaluateItem = (item, submittedAnswer) => {
     if (!isCorrect && isNearMiss(submittedAnswer, shortCorrectAnswer)) {
       spellingNote = `"${submittedAnswer.trim()}" is a spelling mistake. Use "${shortCorrectAnswer}".`;
     }
+  } else if (questionType === "MATCHING") {
+    const pairs = item.matchingData?.pairs || [];
+    const answerObj = typeof submittedAnswer === "object" && submittedAnswer !== null ? submittedAnswer : {};
+    isCorrect = pairs.every((pair, i) => normalize(answerObj[i]) === normalize(pair.answer));
   } else {
     isCorrect = isAcceptedAnswer(submittedAnswer, acceptedAnswers);
   }
@@ -653,7 +661,7 @@ const fallbackModelParagraphs = [
 ];
 
 function getParagraphLabel(item, index) {
-  return item?.label || item?.title || `Model Paragraph ${index === 0 ? "A" : "B"}`;
+  return `Model Paragraph ${index === 0 ? "A" : "B"}`;
 }
 
 function getParagraphText(item) {
@@ -683,22 +691,22 @@ const getFinalWritingModels = (miniTopic = {}, finalWriting = {}) => {
     }
   ];
   const normalizedModels = (Array.isArray(sourceModels) ? sourceModels : []).map((model, index) => ({
-    label: getParagraphLabel(model, index),
+    label: index === 0 ? "Model Paragraph A" : "Model Paragraph B",
     text: getModelParagraphText(model) || explicitModels[index]?.text || fallbackModelParagraphs[index]?.text || ""
   }));
   const models = normalizedModels.length ? normalizedModels : explicitModels;
 
   return [0, 1].map((index) => ({
-    label: models[index]?.label || fallbackModelParagraphs[index].label,
+    label: index === 0 ? "Model Paragraph A" : "Model Paragraph B",
     text: models[index]?.text || fallbackModelParagraphs[index].text
   }));
 };
 
 const finalWritingSupportTabs = [
   { id: "hints", title: "Writing Hints", getItems: (miniTopic) => miniTopic?.writingHints || [] },
-  { id: "grammar", title: "Grammar Reminders", getItems: (miniTopic) => miniTopic?.grammarReminders || [] },
-  { id: "patterns", title: "Useful Sentence Patterns", getItems: (miniTopic) => miniTopic?.sentencePatterns || [] }
+  { id: "grammar", title: "Grammar Reminders", getItems: (miniTopic) => miniTopic?.grammarReminders || [] }
 ];
+
 
 const TaskActivityPage = () => {
   const { miniTopicId, taskType } = useParams();
@@ -731,37 +739,46 @@ const TaskActivityPage = () => {
   const [activeIssueIndex, setActiveIssueIndex] = useState(null);
   const [activeSupportTab, setActiveSupportTab] = useState("hints");
   const [activeModelIndex, setActiveModelIndex] = useState(null);
-
-  const loadActivities = async () => {
-    const payload = await getMiniTopicActivities(miniTopicId);
-    setData(payload);
-    return payload;
-  };
+  const [activeMatchingChip, setActiveMatchingChip] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
-    setError("");
-    setNotice("");
-    setAnswers({});
-    setItemResults({});
-    setFirstAttemptResults(null);
-    setCurrentIndex(0);
-    setShuffledOptionsById({});
-    setChecked(false);
-    setCheckingAnswer(false);
-    setMode("initial");
-    setTaskCompleted(false);
-    setActiveIssueIndex(null);
-    setActiveSupportTab("hints");
-    setActiveModelIndex(null);
-    setParagraph(activeSlug === FINAL_WRITING_SLUG && typeof location.state?.paragraph === "string" ? location.state.paragraph : "");
-    setPendingResumeSession(null);
-    setResumeChecked(false);
-    setAutosaveStatus("");
-    setActiveIssueIndex(null);
-    loadActivities()
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
+    const load = async () => {
+      try {
+        setLoading(true);
+        setError("");
+        setNotice("");
+        setAnswers({});
+        setItemResults({});
+        setFirstAttemptResults(null);
+        setCurrentIndex(0);
+        setShuffledOptionsById({});
+        setChecked(false);
+        setCheckingAnswer(false);
+        setMode("initial");
+        setTaskCompleted(false);
+        setActiveIssueIndex(null);
+        setActiveSupportTab("hints");
+        setActiveModelIndex(null);
+        setParagraph(
+          activeSlug === FINAL_WRITING_SLUG && typeof location.state?.paragraph === "string"
+            ? location.state.paragraph
+            : ""
+        );
+        setPendingResumeSession(null);
+        setResumeChecked(false);
+        setAutosaveStatus("");
+        setActiveIssueIndex(null);
+
+        const payload = await getMiniTopicActivities(miniTopicId);
+        setData(payload);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    load();
   }, [miniTopicId, activeSlug, location.state]);
 
   const activeTask = data?.tasks?.find((task) => task.slug === activeSlug);
@@ -1017,9 +1034,15 @@ const TaskActivityPage = () => {
     setNotice("");
   };
 
-  const handleAnswerChange = (activityId, value) => {
+  const handleAnswerChange = (activityId, value, index = null) => {
     if (checked) return;
-    setAnswers((current) => ({ ...current, [activityId]: value }));
+    setAnswers((current) => {
+      if (index !== null) {
+        const prev = current[activityId] || {};
+        return { ...current, [activityId]: { ...prev, [index]: value } };
+      }
+      return { ...current, [activityId]: value };
+    });
   };
 
   const selectChip = (chip) => {
@@ -1060,7 +1083,15 @@ const TaskActivityPage = () => {
       return;
     }
 
-    if (!submittedAnswer.trim()) {
+    if (currentItem.questionType === "MATCHING") {
+      const pairsCount = currentItem.matchingData?.pairs?.length || 0;
+      const answerObj = typeof submittedAnswer === "object" && submittedAnswer !== null ? submittedAnswer : {};
+      if (Object.keys(answerObj).length < pairsCount) {
+        setError("Please match all items before checking.");
+        setNotice("Select an answer for each question.");
+        return;
+      }
+    } else if (typeof submittedAnswer === "string" && !submittedAnswer.trim()) {
       const message =
         currentItem.questionType === "SENTENCE_WRITING"
           ? "Write one complete sentence before checking."
@@ -1193,6 +1224,24 @@ const TaskActivityPage = () => {
     if (isFinalWriting || !currentItem || mode === "summary" || mode === "complete" || pendingResumeSession) return;
 
     const handleEnter = (event) => {
+      if (event.code === "NumpadAdd" || event.key === "+") {
+        event.preventDefault();
+        if (checked) {
+          const nextBtn = document.getElementById("next-question-btn");
+          if (nextBtn) nextBtn.click();
+        } else {
+          setAnswers((prev) => ({ 
+            ...prev, 
+            [currentItem._id]: currentItem.questionType === "MATCHING" ? {0: "SKIP", 1: "SKIP"} : "SKIP" 
+          }));
+          setTimeout(() => {
+             const checkBtn = document.getElementById("check-answer-btn");
+             if (checkBtn) checkBtn.click();
+          }, 50);
+        }
+        return;
+      }
+
       if (event.key !== "Enter") return;
       const tagName = event.target?.tagName?.toLowerCase();
       const isTextarea = tagName === "textarea";
@@ -1209,7 +1258,7 @@ const TaskActivityPage = () => {
 
     window.addEventListener("keydown", handleEnter);
     return () => window.removeEventListener("keydown", handleEnter);
-  }, [checked, checkingAnswer, currentItem?._id, isFinalWriting, mode, pendingResumeSession]);
+  }, [checked, checkingAnswer, currentItem, isFinalWriting, mode, pendingResumeSession]);
 
   const retryMissed = () => {
     const ids = flatItems.filter((item) => !itemResults[item._id]?.isCorrect).map((item) => item._id);
@@ -1334,7 +1383,7 @@ const TaskActivityPage = () => {
       return (
         <div className="space-y-4">
           <div className="unscramble-answer-box min-h-20 rounded-paper border p-4">
-            <p className="mb-2 font-mono text-sm uppercase text-muted">Your sentence</p>
+            <p className="mb-2 font-display text-base font-bold text-primary">Your sentence</p>
             <div className="flex min-h-10 flex-wrap gap-2">
               {selectedChips.length ? (
                 selectedChips.map((chip) => (
@@ -1383,6 +1432,129 @@ const TaskActivityPage = () => {
       );
     }
 
+    if (currentItem.questionType === "MATCHING") {
+      const pairs = currentItem.matchingData?.pairs || [];
+      const options = shuffledOptionsById[currentItem._id] || [];
+      const currentAnswers = answers[currentItem._id] || {};
+      
+      const selectedValues = Object.values(currentAnswers);
+      const availableOptions = options.filter(opt => !selectedValues.includes(opt));
+
+      return (
+        <div className="rounded-paper border border-border bg-paperSoft p-6">
+          <p className="font-display text-xl font-black text-primary mb-6">{currentItem.matchingData?.question || "Match the modal verbs with the correct sentences."}</p>
+          <div className="space-y-5">
+            {pairs.map((pair, index) => {
+              const selectedValue = currentAnswers[index] || "";
+              const isPairCorrect = checked ? normalize(selectedValue) === normalize(pair.answer) : null;
+              
+              let zoneClass = "border-2 border-dashed border-border bg-surface hover:border-secondary hover:bg-secondary/5";
+              if (checked) {
+                if (isPairCorrect) {
+                  zoneClass = "border-success bg-success/10 text-success font-bold";
+                } else {
+                  zoneClass = "border-danger bg-danger/10 text-danger font-bold";
+                }
+              } else if (selectedValue) {
+                zoneClass = "border-secondary bg-violet-50 text-secondary font-bold shadow-sm";
+              } else if (activeMatchingChip) {
+                zoneClass = "border-warning border-dashed bg-warning/5 animate-pulse";
+              }
+              
+              const handleDrop = (e) => {
+                e.preventDefault();
+                if (checked) return;
+                const opt = e.dataTransfer.getData("text/plain");
+                if (opt) {
+                  handleAnswerChange(currentItem._id, opt, index);
+                }
+              };
+
+              const handleZoneClick = () => {
+                if (checked) return;
+                if (selectedValue) {
+                  // Click to return/remove chip
+                  const newAnswers = { ...currentAnswers };
+                  delete newAnswers[index];
+                  setAnswers((prev) => ({ ...prev, [currentItem._id]: newAnswers }));
+                } else if (activeMatchingChip) {
+                  // Place active chip
+                  handleAnswerChange(currentItem._id, activeMatchingChip, index);
+                  setActiveMatchingChip(null);
+                }
+              };
+
+              // Split by blank line e.g. ______ or ______ (should) or ______ (must)
+              const parts = pair.question.split(/_{2,}/);
+
+              return (
+                <div key={index} className="flex flex-col p-4 bg-white rounded-paper border border-border shadow-sm gap-3">
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-3 text-base leading-8 text-text font-display font-medium">
+                    <span className="font-semibold text-muted mr-1">{index + 11}.</span>
+                    <span>{parts[0]}</span>
+                    
+                    <div
+                      onDragOver={(e) => !checked && e.preventDefault()}
+                      onDrop={handleDrop}
+                      onClick={handleZoneClick}
+                      className={`inline-flex items-center justify-center min-w-[130px] h-10 px-3 py-1.5 rounded-paper border cursor-pointer text-base transition-all duration-200 ${zoneClass}`}
+                    >
+                      {selectedValue ? (
+                        <span className="font-bold">{selectedValue}</span>
+                      ) : (
+                        <span className="text-muted text-xs font-mono uppercase tracking-wider">Drop / Click here</span>
+                      )}
+                    </div>
+
+                    {parts[1] && <span>{parts[1]}</span>}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-border">
+            <p className="font-mono text-xs uppercase tracking-wider text-muted mb-4 font-black">
+              Available Modal Verbs (Drag or Click to place)
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {availableOptions.map((opt) => {
+                const isActive = activeMatchingChip === opt;
+                return (
+                  <button
+                    key={opt}
+                    type="button"
+                    disabled={checked}
+                    draggable={!checked}
+                    onDragStart={(e) => {
+                      e.dataTransfer.setData("text/plain", opt);
+                    }}
+                    onClick={() => {
+                      if (checked) return;
+                      // Auto place in first empty slot if clicked directly
+                      const firstEmptyIdx = pairs.findIndex((_, idx) => !currentAnswers[idx]);
+                      if (firstEmptyIdx !== -1) {
+                        handleAnswerChange(currentItem._id, opt, firstEmptyIdx);
+                      } else {
+                        setActiveMatchingChip(isActive ? null : opt);
+                      }
+                    }}
+                    className={`px-4 py-2.5 text-base font-bold rounded-paper border transition shadow-sm hover:-translate-y-0.5 active:scale-95 ${
+                      isActive
+                        ? "border-warning bg-warning/20 text-warning scale-105 shadow-tactile animate-pulse"
+                        : "border-secondary/30 bg-surface text-primary hover:border-secondary focus-visible:outline focus-visible:outline-4 focus-visible:outline-secondary/40"
+                    }`}
+                  >
+                    {opt}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     if (currentItem.questionType === "GRAMMAR_TABLE") {
       const challenge = currentItem.grammarTableChallenge || {};
       const tables = challenge.tables?.length
@@ -1395,6 +1567,7 @@ const TaskActivityPage = () => {
       return (
         <div className="grid gap-4 md:grid-cols-2">
           {tables.map((table) => {
+            const hasAnswer = !!answers[currentItem._id];
             const selected = answers[currentItem._id] === table.key;
             const correct = table.key === (challenge.correctTable || currentItem.correctAnswer || "A");
             const checkedClass = checked
@@ -1404,8 +1577,10 @@ const TaskActivityPage = () => {
                   ? "grammar-table-card-wrong"
                   : "grammar-table-card-muted"
               : selected
-                ? "grammar-table-card-selected"
-                : "grammar-table-card-idle";
+                ? (table.key === "A" ? "grammar-table-card-selected-a" : "grammar-table-card-selected-b")
+                : hasAnswer
+                  ? "grammar-table-card-unselected"
+                  : "grammar-table-card-idle";
 
             return (
               <button
@@ -1423,15 +1598,15 @@ const TaskActivityPage = () => {
                 <dl className="divide-y divide-border text-base">
                   <div className="grid gap-2 px-5 py-4 sm:grid-cols-[96px_1fr]">
                     <dt className="font-display font-bold text-primary">Form</dt>
-                    <dd className="text-muted">{table.form}</dd>
+                    <dd className="text-muted" style={{ whiteSpace: 'pre-line' }}>{table.form}</dd>
                   </div>
                   <div className="grid gap-2 px-5 py-4 sm:grid-cols-[96px_1fr]">
                     <dt className="font-display font-bold text-primary">Use</dt>
-                    <dd className="text-muted">{table.use}</dd>
+                    <dd className="text-muted" style={{ whiteSpace: 'pre-line' }}>{table.use}</dd>
                   </div>
                   <div className="grid gap-2 px-5 py-4 sm:grid-cols-[96px_1fr]">
                     <dt className="font-display font-bold text-primary">Example</dt>
-                    <dd className="font-semibold text-primary">{table.example}</dd>
+                    <dd className="font-semibold text-primary" style={{ whiteSpace: 'pre-line' }}>{table.example}</dd>
                   </div>
                 </dl>
               </button>
@@ -1443,7 +1618,7 @@ const TaskActivityPage = () => {
 
     return (
       <div className="rounded-paper border border-border bg-paperSoft p-5">
-        <p className="font-display text-lg font-bold text-primary">{currentItem.question}</p>
+        <p className="font-display text-xl font-black text-primary mb-5">{currentItem.question}</p>
         {givenWords.length > 0 && (
           <div className="mt-4">
             <p className="font-mono text-sm uppercase text-muted">Keywords</p>
@@ -1460,7 +1635,7 @@ const TaskActivityPage = () => {
           </div>
         )}
         <label className="mt-5 block">
-          <span className="font-display text-base font-bold text-primary">Your sentence</span>
+          <span className="font-display text-base font-bold text-primary mb-2 block">Your sentence</span>
           <textarea
             value={answers[currentItem._id] || ""}
             disabled={checked}
@@ -1553,8 +1728,8 @@ const TaskActivityPage = () => {
         </div>
 
         <div className="p-6">
-          {currentItem?.questionType !== "SENTENCE_WRITING" && (
-            <p className="mb-5 text-xl leading-8 text-primary">{currentItem?.question}</p>
+          {currentItem?.questionType !== "SENTENCE_WRITING" && currentItem?.question?.trim() && (
+            <p className="mb-5 font-display text-xl font-black leading-8 text-primary">{currentItem?.question}</p>
           )}
           {renderCurrentQuestion()}
           <FeedbackPanel
@@ -1576,12 +1751,12 @@ const TaskActivityPage = () => {
             </p>
             <div className="flex gap-3">
               {!checked ? (
-                <Button type="button" variant="secondary" onClick={handleCheck} disabled={checkingAnswer}>
-                  {checkingAnswer && currentItem?.questionType === "SENTENCE_WRITING" ? "Checking your sentence..." : checkingAnswer ? "Checking Answer" : "Check Answer"}
+                <Button id="check-answer-btn" type="button" variant="secondary" onClick={handleCheck} disabled={checkingAnswer}>
+                  {checkingAnswer && currentItem?.questionType === "SENTENCE_WRITING" ? "Checking your sentence..." : checkingAnswer ? "Checking Answer..." : "Check Answer"}
                 </Button>
               ) : (
-                <Button type="button" variant="secondary" onClick={handleNext} disabled={submitting}>
-                  {currentIndex < queueIds.length - 1 ? "Next" : "Finish Round"}
+                <Button id="next-question-btn" type="button" variant="secondary" onClick={handleNext} disabled={submitting}>
+                  {currentIndex < queueIds.length - 1 ? "Next Question" : "View Results"}
                 </Button>
               )}
             </div>
@@ -1623,9 +1798,13 @@ const TaskActivityPage = () => {
             </p>
           </div>
 
-          <div className="mb-5 rounded-paper border border-border bg-paperSoft p-5">
-            <p className="font-display text-xl font-bold text-primary">Writing Question</p>
-            <p className="mt-2 text-lg leading-8 text-muted">{data.miniTopic.writingQuestion}</p>
+          <div className="mb-5 rounded-paper writing-question-box-gold p-5">
+            <p className="font-display text-xs font-black uppercase tracking-wider writing-question-title">
+              Writing Question
+            </p>
+            <p className="mt-2 text-lg font-bold leading-8 writing-question-text uppercase tracking-wide">
+              {data.miniTopic.writingQuestion}
+            </p>
           </div>
 
           <div className="final-writing-tabs mb-5 rounded-paper border border-border bg-surface p-4">

@@ -1,0 +1,170 @@
+[
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const fs = require('fs');\\nconst content = fs.readFileSync('seed/healthContent.js', 'utf8');\\nconst lines = content.split('\\\\n');\\n\\nconst newActivity = [\\n  '      {',\\n  '        \\\"taskSlug\\\": \\\"modal-verbs\\\",',\\n  '        \\\"taskNumber\\\": 2,',\\n  '        \\\"grammarTitle\\\": \\\"Modal Verbs\\\",',\\n  '        \\\"type\\\": \\\"MATCHING\\\",',\\n  '        \\\"questionType\\\": \\\"MATCHING\\\",',\\n  '        \\\"options\\\": [],',\\n  '        \\\"scrambledWords\\\": [],',\\n  '        \\\"keyword\\\": \\\"\\\",',\\n  '        \\\"grammarSummary\\\": {',\\n  '          \\\"grammarPoint\\\": \\\"Modal verbs\\\",',\\n  '          \\\"form\\\": \\\"Subject + should / must / can / may / might + base verb\\\",',\\n  '          \\\"use\\\": \\\"To give advice, show obligation, or describe possibility.\\\",',\\n  '          \\\"example\\\": \\\"People should verify online health information before sharing it.\\\"',\\n  '        },',\\n  '        \\\"wrongAnswerExplanation\\\": \\\"Review Modal Verbs. Make sure you use the correct modal verb for each sentence.\\\",',\\n  '        \\\"correctAnswerExplanation\\\": \\\"All answers are correct.\\\",',\\n  '        \\\"question\\\": \\\"Use the 6 modal verbs below to complete Questions 11–15. You can use each modal verb ONLY ONCE. One modal verb will NOT be used.\\\",',\\n  '        \\\"wordBank\\\": [',\\n  '          \\\"should\\\",',\\n  '          \\\"can\\\",',\\n  '          \\\"might\\\",',\\n  '          \\\"should not\\\",',\\n  '          \\\"ought to\\\",',\\n  '          \\\"may\\\"',\\n  '        ],',\\n  '        \\\"matchingPairs\\\": [',\\n  '          {',\\n  '            \\\"question\\\": \\\"Fast-food companies ______ provide clear nutrition information because customers have the right to understand what they are eating.\\\",',\\n  '            \\\"answer\\\": \\\"ought to\\\",',\\n  '            \\\"explanation\\\": \\\"“Ought to” is the best answer because the sentence talks about a moral responsibility or ethical duty. The phrase “customers have the right” creates a stronger sense of obligation, which fits “ought to” better than “should.”\\\"',\\n  '          },',\\n  '          {',\\n  '            \\\"question\n<truncated 2087 bytes>",
+      "Description": "\"Script to replace GAP_FILL with MATCHING in healthContent.js\"",
+      "IsArtifact": "false",
+      "Overwrite": "false",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\server\\\\replace.js\"",
+      "toolAction": "\"Writing replacement script\"",
+      "toolSummary": "\"Write replacement script\""
+    }
+  },
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const fs = require('fs');\\nlet content = fs.readFileSync('seed/healthContent.js', 'utf8');\\ncontent = content.replace(/\\\"answer\\\": \\\"ought to\\\"/g, '\\\"correctAnswer\\\": \\\"ought to\\\"');\\ncontent = content.replace(/\\\"answer\\\": \\\"might\\\"/g, '\\\"correctAnswer\\\": \\\"might\\\"');\\ncontent = content.replace(/\\\"answer\\\": \\\"should not\\\"/g, '\\\"correctAnswer\\\": \\\"should not\\\"');\\ncontent = content.replace(/\\\"answer\\\": \\\"can\\\"/g, '\\\"correctAnswer\\\": \\\"can\\\"');\\ncontent = content.replace(/\\\"answer\\\": \\\"may\\\"/g, '\\\"correctAnswer\\\": \\\"may\\\"');\\nfs.writeFileSync('seed/healthContent.js', content, 'utf8');\\nconsole.log('Fixed answer keys');\"",
+      "Description": "\"Fix answer to correctAnswer in healthContent.js\"",
+      "IsArtifact": "false",
+      "Overwrite": "false",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\server\\\\fix_answer.js\"",
+      "toolAction": "\"Writing script to fix answers\"",
+      "toolSummary": "\"Write fix answers script\""
+    }
+  },
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const fs = require('fs');\\n\\nconst content = fs.readFileSync('seed/healthContent.js', 'utf8');\\n\\n// We will find the index of the first target question\\nconst q1 = '\\\"question\\\": \\\"If students ___ (eat) too much fast food, they will gain weight.\\\"';\\nconst q2 = '\\\"question\\\": \\\"People will feel healthier if they ___ (reduce) junk food consumption.\\\"';\\nconst q3 = '\\\"question\\\": \\\"If fast food restaurants ___ (provide) healthier menus, more families will visit them.\\\"';\\nconst q4 = '\\\"question\\\": \\\"If children ___ (drink) less soda, they may have better health.\\\"';\\nconst q5 = '\\\"question\\\": \\\"People will save time if they ___ (order) food online.\\\"';\\n\\nconst replacements = [\\n  {\\n    oldQ: q1,\\n    newQ: '\\\"question\\\": \\\"If fast food ______ (become) cheaper than healthy meals, more teenagers will choose it regularly.\\\"',\\n    newA: '\\\"correctAnswer\\\": \\\"becomes\\\"',\\n    newFullA: '\\\"fullCorrectAnswer\\\": \\\"If fast food becomes (become) cheaper than healthy meals, more teenagers will choose it regularly.\\\"',\\n    newAccepted: '\\\"acceptedAnswers\\\": [\\\\n          \\\"becomes\\\"\\\\n        ]',\\n    newExp: '\\\"explanation\\\": \\\"“Fast food” is singular and uncountable, so we use “becomes.”\\\"',\\n    newExp2: '\\\"correctAnswerExplanation\\\": \\\"“Fast food” is singular and uncountable, so we use “becomes.”\\\"'\\n  },\\n  {\\n    oldQ: q2,\\n    newQ: '\\\"question\\\": \\\"Children may develop unhealthy eating habits if junk food advertisements ______ (appear) too frequently online.\\\"',\\n    newA: '\\\"correctAnswer\\\": \\\"appear\\\"',\\n    newFullA: '\\\"fullCorrectAnswer\\\": \\\"Children may develop unhealthy eating habits if junk food advertisements appear (appear) too frequently online.\\\"',\\n    newAccepted: '\\\"acceptedAnswers\\\": [\\\\n          \\\"appear\\\"\\\\n        ]',\\n    newExp: '\\\"explanation\\\": \\\"“Advertisements” is plural, so we use the base verb “appear.”\\\"',\\n    newExp2: '\\\"correctAnswerExplanation\\\": \\\"“Advertisements” is plural, so we use the base verb “appear.”\\\"'\\n  },\\n  {\\n    oldQ: q3,\\n    newQ: '\n<truncated 3514 bytes>",
+      "Description": "\"Script to replace 5 gap fill questions\"",
+      "IsArtifact": "false",
+      "Overwrite": "false",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\server\\\\replace_conditional.js\"",
+      "toolAction": "\"Writing replace_conditional script\"",
+      "toolSummary": "\"Write replace_conditional script\""
+    }
+  },
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const fs = require('fs');\\n\\nconst content = fs.readFileSync('seed/healthContent.js', 'utf8');\\n\\nconst replacements = [\\n  {\\n    oldQ: '\\\"question\\\": \\\"If students ___ (eat) too much fast food, they will gain weight.\\\"',\\n    newQ: '\\\"question\\\": \\\"If fast food ______ (become) cheaper than healthy meals, more teenagers will choose it regularly.\\\"',\\n    newA: '\\\"correctAnswer\\\": \\\"becomes\\\"',\\n    newFullA: '\\\"fullCorrectAnswer\\\": \\\"If fast food becomes (become) cheaper than healthy meals, more teenagers will choose it regularly.\\\"',\\n    newAccepted: '\\\"acceptedAnswers\\\": [\\\\n          \\\"becomes\\\"\\\\n        ]',\\n    newExp: '\\\"explanation\\\": \\\"“Fast food” is singular and uncountable, so we use “becomes.”\\\"',\\n    newExp2: '\\\"correctAnswerExplanation\\\": \\\"“Fast food” is singular and uncountable, so we use “becomes.”\\\"'\\n  },\\n  {\\n    oldQ: '\\\"question\\\": \\\"People will feel healthier if they ___ (reduce) junk food consumption.\\\"',\\n    newQ: '\\\"question\\\": \\\"Children may develop unhealthy eating habits if junk food advertisements ______ (appear) too frequently online.\\\"',\\n    newA: '\\\"correctAnswer\\\": \\\"appear\\\"',\\n    newFullA: '\\\"fullCorrectAnswer\\\": \\\"Children may develop unhealthy eating habits if junk food advertisements appear (appear) too frequently online.\\\"',\\n    newAccepted: '\\\"acceptedAnswers\\\": [\\\\n          \\\"appear\\\"\\\\n        ]',\\n    newExp: '\\\"explanation\\\": \\\"“Advertisements” is plural, so we use the base verb “appear.”\\\"',\\n    newExp2: '\\\"correctAnswerExplanation\\\": \\\"“Advertisements” is plural, so we use the base verb “appear.”\\\"'\\n  },\\n  {\\n    oldQ: '\\\"question\\\": \\\"If fast food restaurants ___ (provide) healthier menus, more families will visit them.\\\"',\\n    newQ: '\\\"question\\\": \\\"If healthy meals ______ (not serve) in school cafeterias regularly, students may rely more on fast food.\\\"',\\n    newA: '\\\"correctAnswer\\\": \\\"are not served\\\"',\\n    newFullA: '\\\"fullCorrectAnswer\\\": \\\"If healthy meals are not served (not serve) in school cafeterias regularl\n<truncated 3439 bytes>",
+      "Description": "\"Better replacement script\"",
+      "IsArtifact": "false",
+      "Overwrite": "false",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\server\\\\replace_conditional2.js\"",
+      "toolAction": "\"Writing better replacement script\"",
+      "toolSummary": "\"Write replace_conditional2 script\""
+    }
+  },
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const data = require('./healthContent.js');\\n\\nconst mission2Activities = data.filter(a => a.taskSlug === 'modal-verbs' && a.type === 'GAP_FILL');\\n// Note: mission1 GAP_FILL for modal-verbs was removed and replaced with MATCHING, so mission2's GAP_FILL are now the FIRST ones!\\n// Let's print the questions:\\nmission2Activities.slice(0, 5).forEach(a => {\\n  console.log(a.question);\\n});\\n\"",
+      "Description": "\"Extract the GAP_FILL questions for modal verbs\"",
+      "IsArtifact": "false",
+      "Overwrite": "false",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\server\\\\seed\\\\get_m2_questions.js\"",
+      "toolAction": "\"Writing script to get Mission 2 modal-verbs questions\"",
+      "toolSummary": "\"Write get_m2_questions script\""
+    }
+  },
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const { healthMiniTopics } = require('./healthContent.js');\\n\\nconst mission2Activities = healthMiniTopics.filter(a => a.taskSlug === 'modal-verbs' && a.type === 'GAP_FILL');\\n\\n// The first modal-verbs GAP_FILLs were removed and replaced with MATCHING in Mission 1.\\n// But wait, there is still ONE GAP_FILL in Mission 1 Modal Verbs! (The one about \\\"Busy workers ___ not have enough time\\\")\\n// So the first one is from Mission 1, the next 5 should be from Mission 2!\\nmission2Activities.forEach((a, i) => {\\n  console.log(`[${i}] ${a.question}`);\\n});\\n\"",
+      "Description": "\"Script to print modal-verb gap fill questions\"",
+      "IsArtifact": "false",
+      "Overwrite": "true",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\server\\\\seed\\\\get_m2_questions.js\"",
+      "toolAction": "\"Fixing get_m2_questions script\"",
+      "toolSummary": "\"Fix get_m2_questions\""
+    }
+  },
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const { healthMiniTopics } = require('./healthContent.js');\\n\\nconst mission2 = healthMiniTopics[1]; // Exercise and fitness\\nconst mission2Activities = mission2.activities || mission2.tasks || mission2.questions || mission2.activities;\\n// Wait, is it `activities` inside the object? Let's check keys of mission2.\\nconsole.log('Mission 2 keys:', Object.keys(mission2));\\n\\nif (mission2.activities) {\\n  const m2ModalGAP = mission2.activities.filter(a => a.taskSlug === 'modal-verbs' && a.type === 'GAP_FILL');\\n  m2ModalGAP.slice(0, 5).forEach((a, i) => console.log(`[modal] [${i}] ${a.question}`));\\n  \\n  const m2CondGAP = mission2.activities.filter(a => a.taskSlug === 'conditional-sentences' && a.type === 'GAP_FILL');\\n  m2CondGAP.slice(0, 5).forEach((a, i) => console.log(`[cond] [${i}] ${a.question}`));\\n}\\n\"",
+      "Description": "\"Check structure\"",
+      "IsArtifact": "false",
+      "Overwrite": "true",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\server\\\\seed\\\\get_m2_questions.js\"",
+      "toolAction": "\"Fixing get_m2_questions script to access activities\"",
+      "toolSummary": "\"Fix get_m2_questions\""
+    }
+  },
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const fs = require('fs');\\nconst { healthMiniTopics } = require('./healthContent.js');\\n\\nconst mission2 = healthMiniTopics[1];\\n\\n// 1. Replace 5 modal-verbs GAP_FILL with 1 MATCHING\\nconst m2Activities = mission2.activities;\\nconst modalGapFillStart = m2Activities.findIndex(a => a.taskSlug === 'modal-verbs' && a.type === 'GAP_FILL');\\n\\nconst newMatchingActivity = {\\n  \\\"taskSlug\\\": \\\"modal-verbs\\\",\\n  \\\"taskNumber\\\": 2,\\n  \\\"grammarTitle\\\": \\\"Modal Verbs\\\",\\n  \\\"type\\\": \\\"MATCHING\\\",\\n  \\\"questionType\\\": \\\"MATCHING\\\",\\n  \\\"options\\\": [],\\n  \\\"scrambledWords\\\": [],\\n  \\\"keyword\\\": \\\"\\\",\\n  \\\"grammarSummary\\\": {\\n    \\\"grammarPoint\\\": \\\"Modal verbs\\\",\\n    \\\"form\\\": \\\"Subject + should / must / can / may / might + base verb\\\",\\n    \\\"use\\\": \\\"To give advice, show obligation, or describe possibility.\\\",\\n    \\\"example\\\": \\\"People should exercise regularly to stay healthy.\\\"\\n  },\\n  \\\"wrongAnswerExplanation\\\": \\\"Review Modal Verbs. Make sure you use the correct modal verb for each sentence.\\\",\\n  \\\"correctAnswerExplanation\\\": \\\"All answers are correct.\\\",\\n  \\\"question\\\": \\\"Match the modal verbs to the correct sentences (one is extra).\\\",\\n  \\\"wordBank\\\": [\\n    \\\"should\\\",\\n    \\\"can\\\",\\n    \\\"might\\\",\\n    \\\"should not\\\",\\n    \\\"ought to\\\",\\n    \\\"may\\\"\\n  ],\\n  \\\"matchingPairs\\\": [\\n    {\\n      \\\"question\\\": \\\"Schools ______ provide students with more physical education classes because regular exercise is essential for long-term health.\\\",\\n      \\\"correctAnswer\\\": \\\"ought to\\\",\\n      \\\"explanation\\\": \\\"“Ought to” is the best answer because the sentence expresses a moral or social responsibility. The phrase “essential for long-term health” creates a stronger sense of obligation than normal advice.\\\"\\n    },\\n    {\\n      \\\"question\\\": \\\"Teenagers ______ improve their mental health significantly if they exercise regularly.\\\",\\n      \\\"correctAnswer\\\": \\\"can\\\",\\n      \\\"explanation\\\": \\\"“Can” expresses ability or positive possibility. The sentence focuses on what teenagers are able to achieve throu\n<truncated 2730 bytes>",
+      "Description": "\"Script to modify Mission 2 tasks using JSON manipulation\"",
+      "IsArtifact": "false",
+      "Overwrite": "true",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\server\\\\seed\\\\modify_mission2.js\"",
+      "toolAction": "\"Writing Mission 2 modification script\"",
+      "toolSummary": "\"Write modify_mission2 script\""
+    }
+  },
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const fs = require('fs');\\nconst { healthMiniTopics } = require('./healthContent.js');\\n\\nconst mission2 = healthMiniTopics[1];\\n\\nconst m2Activities = mission2.activities;\\n\\n// Find all indices of GAP_FILL for conditional-sentences in Mission 2\\nconst condIndices = [];\\nm2Activities.forEach((a, i) => {\\n  if (a.taskSlug === 'conditional-sentences' && a.type === 'GAP_FILL') {\\n    condIndices.push(i);\\n  }\\n});\\n\\nif (condIndices.length < 5) {\\n  console.error(\\\"Less than 5 GAP_FILL found for conditional-sentences in Mission 2!\\\");\\n  process.exit(1);\\n}\\n\\nconst replacements = [\\n  {\\n    q: \\\"If regular physical activity ______ (improve) students’ concentration levels, schools may encourage more fitness programs.\\\",\\n    a: \\\"improves\\\",\\n    fa: \\\"If regular physical activity improves (improve) students’ concentration levels, schools may encourage more fitness programs.\\\",\\n    exp: \\\"“Regular physical activity” is singular, so we use “improves.”\\\"\\n  },\\n  {\\n    q: \\\"Teenagers may gain weight if they ______ (not exercise) regularly after school.\\\",\\n    a: \\\"do not exercise\\\",\\n    fa: \\\"Teenagers may gain weight if they do not exercise (not exercise) regularly after school.\\\",\\n    exp: \\\"Negative present simple: do not + base verb. “Teenagers” is plural, so we use “do not exercise.”\\\"\\n  },\\n  {\\n    q: \\\"If outdoor activities ______ (replace) by excessive screen time, children may become less physically active.\\\",\\n    a: \\\"are replaced\\\",\\n    fa: \\\"If outdoor activities are replaced (replace) by excessive screen time, children may become less physically active.\\\",\\n    exp: \\\"This sentence requires the passive voice: are + past participle. “Activities” is plural, so we use “are replaced.”\\\"\\n  },\\n  {\\n    q: \\\"Students will feel healthier if their daily routines ______ (include) regular exercise and balanced diets.\\\",\\n    a: \\\"include\\\",\\n    fa: \\\"Students will feel healthier if their daily routines include (include) regular exercise and balanced diets.\\\",\\n    exp: \\\"\n<truncated 1522 bytes>",
+      "Description": "\"Script to update the 5 GAP_FILL activities for conditional sentences in Mission 2\"",
+      "IsArtifact": "false",
+      "Overwrite": "true",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\server\\\\seed\\\\update_m2_cond.js\"",
+      "toolAction": "\"Writing update_m2_cond script\"",
+      "toolSummary": "\"Write update_m2_cond script\""
+    }
+  },
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const fs = require('fs');\\nconst { healthMiniTopics } = require('./healthContent.js');\\n\\nconst mission2 = healthMiniTopics[1];\\nconst activities = mission2.activities;\\n\\n// Find the index after the last item of Task 3\\nlet insertIndex = -1;\\nlet lastTask3Order = -1;\\nfor (let i = 0; i < activities.length; i++) {\\n  if (activities[i].taskSlug === 'conditional-sentences') {\\n    insertIndex = i + 1;\\n    lastTask3Order = activities[i].order;\\n  }\\n}\\n\\n// Increment order for all items after insertIndex by 21\\nfor (let i = insertIndex; i < activities.length; i++) {\\n  activities[i].order += 21;\\n}\\n\\nconst grammarSummary = {\\n  grammarPoint: \\\"Conditional Sentence Type 2\\\",\\n  form: \\\"If + Subject + Past Simple, Subject + would/could/might + Verb (infinitive)\\\",\\n  use: \\\"To describe a hypothetical or unreal situation in the present or future.\\\",\\n  example: \\\"If people exercised daily, they would experience fewer cardiovascular problems.\\\"\\n};\\n\\nconst newTasks = [\\n  // MCQ\\n  {\\n    taskSlug: \\\"conditional-sentence-type-2\\\", taskNumber: 4, grammarTitle: \\\"Conditional Sentence Type 2\\\",\\n    type: \\\"MCQ\\\", questionType: \\\"MCQ\\\", options: [\\\"experience\\\", \\\"would experience\\\", \\\"will experience\\\", \\\"have experienced\\\"],\\n    question: \\\"If people exercised daily, they ________ fewer cardiovascular problems.\\\",\\n    correctAnswer: \\\"would experience\\\", explanation: \\\"This is a Conditional Sentence Type 2, which describes a hypothetical or unreal situation in the present or future. The main clause requires the structure would + Verb (infinitive).\\\"\\n  },\\n  {\\n    taskSlug: \\\"conditional-sentence-type-2\\\", taskNumber: 4, grammarTitle: \\\"Conditional Sentence Type 2\\\",\\n    type: \\\"MCQ\\\", questionType: \\\"MCQ\\\", options: [\\\"are\\\", \\\"were\\\", \\\"will be\\\", \\\"would be\\\"],\\n    question: \\\"If gym memberships ________ more affordable, more citizens would exercise regularly.\\\",\\n    correctAnswer: \\\"were\\\", explanation: \\\"In the If-clause of a Type 2 conditional sentence, the Past Simple tense is used. For the verb 'to be',\n<truncated 14678 bytes>",
+      "Description": "\"Script to insert Task 4 into Mission 2\"",
+      "IsArtifact": "false",
+      "Overwrite": "true",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\server\\\\seed\\\\insert_task4.js\"",
+      "toolAction": "\"Writing insert_task4 script\"",
+      "toolSummary": "\"Write insert_task4 script\""
+    }
+  },
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const fs = require('fs');\\n\\nconst { healthMiniTopics } = require('./server/seed/healthContent.js');\\n\\nconst m3 = healthMiniTopics.find(m => m.slug === 'sleep-habits');\\n\\nif (!m3) {\\n  console.log('Mission 3 not found');\\n  process.exit(1);\\n}\\n\\n// 1. Remove old Q11-15 for modal-verbs\\nm3.activities = m3.activities.filter(a => !(a.taskSlug === 'modal-verbs' && a.questionNumber >= 11 && a.questionNumber <= 15));\\n\\n// Insert MATCHING task for modal-verbs\\nconst matchingTask = {\\n  type: \\\"MATCHING\\\",\\n  taskSlug: \\\"modal-verbs\\\",\\n  taskNumber: 2,\\n  grammarTitle: \\\"Modal Verbs\\\",\\n  instruction: \\\"Direction for Questions 11-15: Fill in each blank with the most appropriate modal verb from the following pool of 6 options: must, ought to, might, cannot, should, would. Each option can only be used once, and one option will remain unused.\\\",\\n  options: [\\\"must\\\", \\\"ought to\\\", \\\"might\\\", \\\"cannot\\\", \\\"should\\\", \\\"would\\\"],\\n  questions: [\\n    {\\n      questionNumber: 11,\\n      text: \\\"Exposing the eyes to mild ambient light during sleep ________ increase the risk of insulin resistance, though more clinical trials are needed to confirm this.\\\",\\n      answer: \\\"might\\\",\\n      explanation: `The phrase \\\"though more clinical trials are needed to confirm this\\\" indicates a weak, highly uncertain possibility.\\\\nMight is used in academic writing for hedging, which means expressing an idea with a cautious lack of certainty.`\\n    },\\n    {\\n      questionNumber: 12,\\n      text: \\\"As a matter of social responsibility, public health organizations ________ invest in free sleep disorders screening for low-income families.\\\",\\n      answer: \\\"ought to\\\",\\n      explanation: `Why ought to is used instead of should: While both words can express advice, ought to is distinctly preferred here because the sentence highlights an objective, external moral duty and societal obligation (\\\"As a matter of social responsibility\\\") rather than just a subjective opinion. This leaves should as the perfect fit for a standard practical su\n<truncated 25219 bytes>",
+      "Description": "\"Script to update mission 3 in healthContent.js\"",
+      "IsArtifact": "false",
+      "Overwrite": "true",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\update_m3.js\"",
+      "toolAction": "\"Writing update_m3.js script\"",
+      "toolSummary": "\"Write update_m3.js\""
+    }
+  },
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const fs = require('fs');\\nconst { healthMiniTopics } = require('./server/seed/healthContent.js');\\n\\nconst m3 = healthMiniTopics.find(m => m.slug === 'sleep-habits');\\n\\nif (m3) {\\n  m3.activities.forEach((act, index) => {\\n    act.order = index + 1;\\n  });\\n  \\n  fs.writeFileSync('c:/Users/flour/Documents/writewise-antigravity-ready/writewise-antigravity-ready/server/seed/healthContent.js', \\\"const healthMiniTopics = \\\" + JSON.stringify(healthMiniTopics, null, 2) + \\\";\\\\n\\\\nmodule.exports = { healthMiniTopics };\\\\n\\\", 'utf8');\\n  console.log(\\\"Fixed order for all activities in m3\\\");\\n} else {\\n  console.log(\\\"Not found m3\\\");\\n}\\n\"",
+      "Description": "\"Fix order path error\"",
+      "IsArtifact": "false",
+      "Overwrite": "true",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\fix_order.js\"",
+      "toolAction": "\"Writing fix_order.js script\"",
+      "toolSummary": "\"Write fix_order.js\""
+    }
+  },
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const fs = require('fs');\\n\\nconst { healthMiniTopics } = require('./server/seed/healthContent.js');\\n\\nconst m3 = healthMiniTopics.find(m => m.slug === 'sleep-habits');\\n\\nif (!m3) {\\n  console.log('Mission 3 not found');\\n  process.exit(1);\\n}\\n\\nconst task5Data = [\\n  {\\n    type: \\\"MCQ\\\",\\n    taskSlug: \\\"conditional-sentence-type-3\\\",\\n    taskNumber: 5,\\n    grammarTitle: \\\"Conditional Sentence Type 3\\\",\\n    questionNumber: 1,\\n    instruction: \\\"Direction: Choose the correct option (A, B, C, or D) to complete the sentence. This sentence serves as an argument about the past performance of students who managed their time poorly.\\\",\\n    question: \\\"If the students ________ their sleep schedules before the final exams last term, their grade point averages would have been much higher.\\\",\\n    options: [\\\"fix\\\", \\\"fixed\\\", \\\"had fixed\\\", \\\"have fixed\\\"],\\n    correctAnswer: \\\"had fixed\\\",\\n    explanation: \\\"This sentence describes an unreal situation in the past (Conditional Type 3).\\\\nThe If-clause requires the Past Perfect tense (had + V3/Ed).\\\"\\n  },\\n  {\\n    type: \\\"MCQ\\\",\\n    taskSlug: \\\"conditional-sentence-type-3\\\",\\n    taskNumber: 5,\\n    grammarTitle: \\\"Conditional Sentence Type 3\\\",\\n    questionNumber: 2,\\n    instruction: \\\"Direction: Choose the correct option (A, B, C, or D) to complete the sentence. This sentence analyzes the historical outcomes of a past corporate remote work policy on health.\\\",\\n    question: \\\"The workforce ________ from chronic fatigue if the management had prohibited late-night emails three years ago.\\\",\\n    options: [\\\"would not suffer\\\", \\\"would not have suffered\\\", \\\"did not suffer\\\", \\\"will not have suffered\\\"],\\n    correctAnswer: \\\"would not have suffered\\\",\\n    explanation: \\\"The If-clause uses the Past Perfect (had prohibited), indicating a Type 3 conditional.\\\\nThe main clause must use would/could/might + have + V3/Ed to show the hypothetical past result.\\\"\\n  },\\n  {\\n    type: \\\"MCQ\\\",\\n    taskSlug: \\\"conditional-sentence-type-3\\\",\\n    taskNumber: 5,\\n  \n<truncated 20339 bytes>",
+      "Description": "\"Script to add Task 5 to Mission 3\"",
+      "IsArtifact": "false",
+      "Overwrite": "true",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\update_m3_task5.js\"",
+      "toolAction": "\"Writing update script for Mission 3 Task 5\"",
+      "toolSummary": "\"Write update_m3_task5.js\""
+    }
+  },
+  {
+    "name": "write_to_file",
+    "args": {
+      "CodeContent": "\"const fs = require('fs');\\nconst { healthMiniTopics } = require('./server/seed/healthContent.js');\\n\\nconst m4 = healthMiniTopics[3]; // Mission 4\\n\\nif (!m4) {\\n  console.log('Mission 4 not found');\\n  process.exit(1);\\n}\\n\\n// 1. Replace 5 fill in blank (Q11-15) in modal-verbs with matching\\nm4.activities = m4.activities.filter(a => !(a.taskSlug === 'modal-verbs' && a.questionNumber >= 11 && a.questionNumber <= 15));\\n\\nconst matchingTask = {\\n  type: \\\"MATCHING\\\",\\n  taskSlug: \\\"modal-verbs\\\",\\n  taskNumber: 2,\\n  grammarTitle: \\\"Modal Verbs\\\",\\n  instruction: \\\"Direction for Questions 11-15: Fill in each blank with the most appropriate modal verb from the following pool of 6 options: must, ought to, cannot, might, should, will. Each option can only be used once, and one word will remain unused.\\\",\\n  options: [\\\"must\\\", \\\"ought to\\\", \\\"cannot\\\", \\\"might\\\", \\\"should\\\", \\\"will\\\"],\\n  questions: [\\n    {\\n      questionNumber: 11,\\n      text: \\\"From an ethical standpoint, educational institutions ________ protect young children from commercial exploitation by banning junk food vendors on campus.\\\",\\n      answer: \\\"ought to\\\",\\n      explanation: \\\"This sentence explicitly highlights an external ethical and moral duty (\\\\\\\"From an ethical standpoint\\\\\\\").\\\\nWhy ought to and not should: While both express recommendations, ought to is specifically preferred in formal English to denote an objective moral obligation or structural duty dictated by a code of conduct. Should is more suited for subjective, general advice.\\\"\\n    },\\n    {\\n      questionNumber: 12,\\n      text: \\\"Students ________ maintain steady concentration during afternoon lectures if their school lunches consist entirely of high-sugar junk food.\\\",\\n      answer: \\\"cannot\\\",\\n      explanation: \\\"The sentence describes a physical or biological impossibility caused by dietary sugar crashes.\\\\nCannot is the only modal in the pool that expresses absolute inability or lack of possibility.\\\"\\n    },\\n    {\\n      questionNumber: 13,\\n      text: \\\"To \n<truncated 19898 bytes>",
+      "Description": "\"Script to update Mission 4\"",
+      "IsArtifact": "false",
+      "Overwrite": "true",
+      "TargetFile": "\"c:\\\\Users\\\\flour\\\\Documents\\\\writewise-antigravity-ready\\\\writewise-antigravity-ready\\\\update_m4.js\"",
+      "toolAction": "\"Writing update script for Mission 4\"",
+      "toolSummary": "\"Write update_m4.js\""
+    }
+  }
+]

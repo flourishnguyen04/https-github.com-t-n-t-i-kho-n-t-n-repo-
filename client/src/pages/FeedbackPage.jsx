@@ -298,7 +298,7 @@ const FeedbackPage = () => {
     return <LoadingState label="Loading feedback" />;
   }
 
-  const miniTopicId = submission?.miniTopicId?._id || submission?.miniTopicId;
+  const miniTopicId = submission?.miniTopicId?._id || submission?.miniTopicId?.id || submission?.miniTopicId;
   const feedbackCards = getFeedbackCards(submission);
   const aiUnavailable = Boolean(submission?.aiUnavailable);
   const improvementCards = feedbackCards.filter((card) => card.type === "improvement");

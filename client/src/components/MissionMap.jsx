@@ -22,14 +22,34 @@ import {
 import { getTaskMeta } from "../data/taskMeta";
 import CurvedPath from "./CurvedPath";
 import TaskNode from "./TaskNode";
-
-const MAP_POSITIONS = {
+const MAP_POSITIONS_6 = {
   1: { x: 72, y: 86 },
   2: { x: 28, y: 71 },
   3: { x: 72, y: 56 },
   4: { x: 28, y: 41 },
   5: { x: 72, y: 26 },
   6: { x: 50, y: 10 }
+};
+
+const MAP_POSITIONS_7 = {
+  1: { x: 72, y: 86 },
+  2: { x: 28, y: 73 },
+  3: { x: 72, y: 60 },
+  4: { x: 28, y: 47 },
+  5: { x: 72, y: 34 },
+  6: { x: 28, y: 21 },
+  7: { x: 50, y: 8 }
+};
+
+const MAP_POSITIONS_8 = {
+  1: { x: 72, y: 86 },
+  2: { x: 28, y: 75 },
+  3: { x: 72, y: 64 },
+  4: { x: 28, y: 53 },
+  5: { x: 72, y: 42 },
+  6: { x: 28, y: 31 },
+  7: { x: 72, y: 20 },
+  8: { x: 50, y: 9 }
 };
 
 const PATTERN_ICONS = {
@@ -94,11 +114,15 @@ const MissionMap = ({ miniTopic, steps, onTaskSelect }) => {
   const allComplete = steps.length > 0 && steps.every((step) => step.isCompleted);
   const currentType = steps.find((step) => step.isUnlocked && !step.isCompleted)?.slug || "";
 
+  const positions = steps.length === 8 ? MAP_POSITIONS_8 : steps.length === 7 ? MAP_POSITIONS_7 : MAP_POSITIONS_6;
+
+  const minHeightClass = steps.length === 8 ? "min-h-[1200px]" : steps.length === 7 ? "min-h-[1040px]" : "min-h-[900px]";
+
   return (
     <div className={`paper-panel relative overflow-hidden rounded-paper border border-border shadow-tactile ${mapClass}`}>
       <BackgroundPattern theme={missionTheme} />
-      <div className="relative z-10 mx-auto min-h-[1040px] max-w-3xl px-3 py-8 sm:px-6">
-        <CurvedPath allComplete={allComplete} />
+      <div className={`relative z-10 mx-auto max-w-3xl px-3 py-8 sm:px-6 ${minHeightClass}`}>
+        <CurvedPath allComplete={allComplete} totalSteps={steps.length} />
 
         {steps.map((step) => {
           const meta = getTaskMeta(step);
@@ -110,7 +134,7 @@ const MissionMap = ({ miniTopic, steps, onTaskSelect }) => {
               meta={meta}
               step={step}
               status={status}
-              position={MAP_POSITIONS[meta.taskNumber]}
+              position={positions[meta.taskNumber]}
               onSelect={onTaskSelect}
             />
           );
