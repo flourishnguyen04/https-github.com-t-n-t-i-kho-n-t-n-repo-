@@ -13,7 +13,18 @@ const GRAMMAR_TASKS = [
 const TASK_FLOW = [...GRAMMAR_TASKS.map((task) => task.slug), FINAL_WRITING_SLUG];
 const ACTIVITY_FLOW = TASK_FLOW;
 
-const toId = (value) => String(value?.id || value?._id || value);
+const toId = (value) => {
+  if (!value) return "";
+  const idVal = value._id || value;
+  if (idVal && typeof idVal.toHexString === "function") {
+    return idVal.toHexString();
+  }
+  if (idVal && typeof idVal.toString === "function") {
+    const str = idVal.toString();
+    if (str !== "[object Object]") return str;
+  }
+  return String(idVal);
+};
 
 const progressMapByMiniTopic = (progresses = []) =>
   progresses.reduce((map, progress) => {
